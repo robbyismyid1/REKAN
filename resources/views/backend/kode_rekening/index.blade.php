@@ -38,7 +38,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($kode_rekening as $data)
+                @foreach($kode_rekening_id as $data)
                     <tr>
                         <td class="text-center">
                             {{ $data->id }}
@@ -52,13 +52,13 @@
                 @endforeach
               </tbody>
             </table>
-              {{ $kode_rekening->links() }}
+              {{ $kode_rekening_id->links() }}
           </div>
           <br>
         </div>
             <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $kode_rekening->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($kode_rekening->total(), 0, '', '.') }} <br/></h5>
+                <h5 style="color:black">Data Per Halaman : {{ $kode_rekening_id->perPage() }} <br/></h5>
+                <h5 style="color:black">Jumlah Data : {{ number_format($kode_rekening_id->total(), 0, '', '.') }} <br/></h5>
             </div>
       </div>
 @endsection 

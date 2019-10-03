@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\BrisData;
+use App\BsmData;
 use App\KodeRekening;
 use Session;
 
-class BrisController extends Controller
+class BsmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class BrisController extends Controller
      */
     public function getjson()
     {
-        $bris = BrisData::all();
+        $bsm = BsmData::all();
         $response = [
             'success' => true,
-            'data' => $bris,
+            'data' => $bsm,
             'message' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -29,7 +29,7 @@ class BrisController extends Controller
     public function index(Request $request)
     {
         $kode_rekening_id = KodeRekening::all(); 
-        $bris = BrisData::when($request->keyword, function ($query) use ($request) {
+        $bsm = BsmData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_2', 'like', "%{$request->keyword}%")
@@ -40,10 +40,10 @@ class BrisController extends Controller
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
                 ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
-            $bris->appends($request->only('keyword'));
+            $bsm->appends($request->only('keyword'));
         
 
-        return view('backend.bris.index', compact('bris', 'kode_rekening_id'));
+        return view('backend.bsm.index', compact('bsm', 'kode_rekening_id'));
     }
 
     /**
@@ -55,25 +55,25 @@ class BrisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_urut' => 'required|unique:bris_data'
+            'no_urut' => 'required|unique:bsm_data'
         ]);
 
-        $bris = new BrisData;
+        $bsm = new BsmData;
 
-        $bris->no_urut = $request->no_urut;
-        $bris->tanggal_1 = $request->tanggal_1;
-        $bris->tanggal_2 = $request->tanggal_2;
-        $bris->remark = $request->remark;
-        $bris->kode_rekening_bank = $request->kode_rekening_bank;
-        $bris->debit = $request->debit;
-        $bris->kredit = $request->kredit;
-        $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
-        $bris->save();
+        $bsm->no_urut = $request->no_urut;
+        $bsm->tanggal_1 = $request->tanggal_1;
+        $bsm->tanggal_2 = $request->tanggal_2;
+        $bsm->remark = $request->remark;
+        $bsm->kode_rekening_bank = $request->kode_rekening_bank;
+        $bsm->debit = $request->debit;
+        $bsm->kredit = $request->kredit;
+        $bsm->saldo = $request->saldo;
+        $bsm->kode_rekening_id = $request->kode_rekening_id;
+        $bsm->save();
 
-        toastr()->success('Data berhasil ditambah!', "$bris->remark");
+        toastr()->success('Data berhasil ditambah!', "$bsm->remark");
 
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('bsm.index');
     }
 
     /**
@@ -86,21 +86,21 @@ class BrisController extends Controller
     public function update(Request $request, $id)
     {
 
-        $bris = BrisData::findOrFail($request->id);
+        $bsm = BsmData::findOrFail($request->id);
 
-        $bris->tanggal_1 = $request->tanggal_1;
-        $bris->tanggal_2 = $request->tanggal_2;
-        $bris->remark = $request->remark;
-        $bris->kode_rekening_bank = $request->kode_rekening_bank;
-        $bris->debit = $request->debit;
-        $bris->kredit = $request->kredit;
-        $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
-        $bris->save();
+        $bsm->tanggal_1 = $request->tanggal_1;
+        $bsm->tanggal_2 = $request->tanggal_2;
+        $bsm->remark = $request->remark;
+        $bsm->kode_rekening_bank = $request->kode_rekening_bank;
+        $bsm->debit = $request->debit;
+        $bsm->kredit = $request->kredit;
+        $bsm->saldo = $request->saldo;
+        $bsm->kode_rekening_id = $request->kode_rekening_id;
+        $bsm->save();
 
-        toastr()->warning('Data berhasil diubah!', "$bris->remark");
+        toastr()->warning('Data berhasil diubah!', "$bsm->remark");
 
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('bsm.index');
     }
 
     /**
@@ -111,12 +111,12 @@ class BrisController extends Controller
      */
     public function destroy(Request $request)
     {
-        $bris = BrisData::findOrFail($request->id);
-        $old = $bris->remark;
-        $bris->delete();
+        $bsm = BsmData::findOrFail($request->id);
+        $old = $bsm->remark;
+        $bsm->delete();
         
         toastr()->error('Data berhasil dihapus!', "$old");
         
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('bsm.index');
     }
 }

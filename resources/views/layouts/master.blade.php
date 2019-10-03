@@ -46,8 +46,12 @@
                 </section>
             </div>
 
-            @include('backend.bris.modal')
+            @include('backend.bjbs.modal')
+            @include('backend.bjbsh2h.modal')
+            @include('backend.bsm.modal')
+            @include('backend.btn.modal')
             @include('backend.bri.modal')
+            @include('backend.bris.modal')
             @include('backend.kode_rekening.modal')
 
             {{-- Footer --}}
@@ -93,10 +97,10 @@
             modal.find('#saldo').val(saldo)
             modal.find('#kode_rekening_id').val(kode_rekening_id)
             modal.find('#id').val(id)
-          })
-    </script>
-
-    <script>
+            })
+        </script>
+    
+        <script>
         $('#delete-bris').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var no_urut = button.data('no_urut')
@@ -123,17 +127,257 @@
             modal.find('#saldo').val(saldo)
             modal.find('#kode_rekening_id').val(kode_rekening_id)
             modal.find('#id').val(id)
-          })
+            })
+        </script>
+
+        <script>
+            $('#edit-bri').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var no_urut = button.data('no_urut')
+                var tanggal_1 = button.data('tanggal_1')
+                var tanggal_2 = button.data('tanggal_2')
+                var remark = button.data('remark')
+                var kode_teller = button.data('kode_teller')
+                var debit = button.data('debit')
+                var kredit = button.data('kredit')
+                var saldo = button.data('saldo')
+                var kode_rekening_id = button.data('kode_rekening_id')
+                var id = button.data('id')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+
+                modal.find('#no_urut').val(no_urut)
+                modal.find('#tanggal_1').val(tanggal_1)
+                modal.find('#tanggal_2').val(tanggal_2)
+                modal.find('#remark').val(remark)
+                modal.find('#kode_teller').val(kode_teller)
+                modal.find('#debit').val(debit)
+                modal.find('#kredit').val(kredit)
+                modal.find('#saldo').val(saldo)
+                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#id').val(id)
+            })
+        </script>
+
+        <script>
+            $('#delete-bri').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var no_urut = button.data('no_urut')
+                var tanggal_1 = button.data('tanggal_1')
+                var tanggal_2 = button.data('tanggal_2')
+                var remark = button.data('remark')
+                var kode_teller = button.data('kode_teller')
+                var debit = button.data('debit')
+                var kredit = button.data('kredit')
+                var saldo = button.data('saldo')
+                var kode_rekening_id = button.data('kode_rekening_id')
+                var id = button.data('id')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+
+                modal.find('#no_urut').val(no_urut)
+                modal.find('#tanggal_1').val(tanggal_1)
+                modal.find('#tanggal_2').val(tanggal_2)
+                modal.find('#remark').val(remark)
+                modal.find('#kode_teller').val(kode_teller)
+                modal.find('#debit').val(debit)
+                modal.find('#kredit').val(kredit)
+                modal.find('#saldo').val(saldo)
+                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#id').val(id)
+            })
+        </script>
+
+        <script>
+            $('#edit-btn').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var no_urut = button.data('no_urut')
+                var tanggal_1 = button.data('tanggal_1')
+                var tanggal_2 = button.data('tanggal_2')
+                var remark = button.data('remark')
+                var waktu_posting = button.data('waktu_posting')
+                var debit = button.data('debit')
+                var kredit = button.data('kredit')
+                var saldo = button.data('saldo')
+                var kode_rekening_id = button.data('kode_rekening_id')
+                var id = button.data('id')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+
+                modal.find('#no_urut').val(no_urut)
+                modal.find('#tanggal_1').val(tanggal_1)
+                modal.find('#tanggal_2').val(tanggal_2)
+                modal.find('#remark').val(remark)
+                modal.find('#waktu_posting').val(waktu_posting)
+                modal.find('#debit').val(debit)
+                modal.find('#kredit').val(kredit)
+                modal.find('#saldo').val(saldo)
+                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#id').val(id)
+            })
+            </script>
+
+            <script>
+            $('#delete-btn').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var no_urut = button.data('no_urut')
+                var tanggal_1 = button.data('tanggal_1')
+                var tanggal_2 = button.data('tanggal_2')
+                var remark = button.data('remark')
+                var waktu_posting = button.data('waktu_posting')
+                var debit = button.data('debit')
+                var kredit = button.data('kredit')
+                var saldo = button.data('saldo')
+                var kode_rekening_id = button.data('kode_rekening_id')
+                var id = button.data('id')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+
+                modal.find('#no_urut').val(no_urut)
+                modal.find('#tanggal_1').val(tanggal_1)
+                modal.find('#tanggal_2').val(tanggal_2)
+                modal.find('#remark').val(remark)
+                modal.find('#waktu_posting').val(waktu_posting)
+                modal.find('#debit').val(debit)
+                modal.find('#kredit').val(kredit)
+                modal.find('#saldo').val(saldo)
+                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#id').val(id)
+            })
+        </script>
+
+<script>
+        $('#edit-bjbsh2h').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var no_urut = button.data('no_urut')
+            var tanggal_1 = button.data('tanggal_1')
+            var kode = button.data('kode')
+            var remark = button.data('remark')
+            var no_bukti = button.data('no_bukti')
+            var debit = button.data('debit')
+            var kredit = button.data('kredit')
+            var saldo = button.data('saldo')
+            var kode_rekening_id = button.data('kode_rekening_id')
+            var id = button.data('id')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('#no_urut').val(no_urut)
+            modal.find('#tanggal_1').val(tanggal_1)
+            modal.find('#kode').val(kode)
+            modal.find('#remark').val(remark)
+            modal.find('#no_bukti').val(no_bukti)
+            modal.find('#debit').val(debit)
+            modal.find('#kredit').val(kredit)
+            modal.find('#saldo').val(saldo)
+            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#id').val(id)
+        })
+        </script>
+
+        <script>
+        $('#delete-bjbsh2h').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var no_urut = button.data('no_urut')
+            var tanggal_1 = button.data('tanggal_1')
+            var kode = button.data('kode')
+            var remark = button.data('remark')
+            var no_bukti = button.data('no_bukti')
+            var debit = button.data('debit')
+            var kredit = button.data('kredit')
+            var saldo = button.data('saldo')
+            var kode_rekening_id = button.data('kode_rekening_id')
+            var id = button.data('id')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('#no_urut').val(no_urut)
+            modal.find('#tanggal_1').val(tanggal_1)
+            modal.find('#kode').val(kode)
+            modal.find('#remark').val(remark)
+            modal.find('#no_bukti').val(no_bukti)
+            modal.find('#debit').val(debit)
+            modal.find('#kredit').val(kredit)
+            modal.find('#saldo').val(saldo)
+            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#id').val(id)
+        })
     </script>
 
     <script>
-        $('#edit-bri').on('show.bs.modal', function (event) {
+        $('#edit-bjbs').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var no_urut = button.data('no_urut')
+            var tanggal_1 = button.data('tanggal_1')
+            var kode = button.data('kode')
+            var remark = button.data('remark')
+            var no_bukti = button.data('no_bukti')
+            var debit = button.data('debit')
+            var kredit = button.data('kredit')
+            var saldo = button.data('saldo')
+            var kode_rekening_id = button.data('kode_rekening_id')
+            var id = button.data('id')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('#no_urut').val(no_urut)
+            modal.find('#tanggal_1').val(tanggal_1)
+            modal.find('#kode').val(kode)
+            modal.find('#remark').val(remark)
+            modal.find('#no_bukti').val(no_bukti)
+            modal.find('#debit').val(debit)
+            modal.find('#kredit').val(kredit)
+            modal.find('#saldo').val(saldo)
+            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#id').val(id)
+        })
+        </script>
+
+        <script>
+        $('#delete-bjbs').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var no_urut = button.data('no_urut')
+            var tanggal_1 = button.data('tanggal_1')
+            var kode = button.data('kode')
+            var remark = button.data('remark')
+            var no_bukti = button.data('no_bukti')
+            var debit = button.data('debit')
+            var kredit = button.data('kredit')
+            var saldo = button.data('saldo')
+            var kode_rekening_id = button.data('kode_rekening_id')
+            var id = button.data('id')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('#no_urut').val(no_urut)
+            modal.find('#tanggal_1').val(tanggal_1)
+            modal.find('#kode').val(kode)
+            modal.find('#remark').val(remark)
+            modal.find('#no_bukti').val(no_bukti)
+            modal.find('#debit').val(debit)
+            modal.find('#kredit').val(kredit)
+            modal.find('#saldo').val(saldo)
+            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#id').val(id)
+        })
+        </script>
+
+        <script>
+        $('#edit-bsm').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var no_urut = button.data('no_urut')
             var tanggal_1 = button.data('tanggal_1')
             var tanggal_2 = button.data('tanggal_2')
             var remark = button.data('remark')
-            var kode_teller = button.data('kode_teller')
+            var kode_rekening_bank = button.data('kode_rekening_bank')
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
@@ -147,23 +391,23 @@
             modal.find('#tanggal_1').val(tanggal_1)
             modal.find('#tanggal_2').val(tanggal_2)
             modal.find('#remark').val(remark)
-            modal.find('#kode_teller').val(kode_teller)
+            modal.find('#kode_rekening_bank').val(kode_rekening_bank)
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
             modal.find('#kode_rekening_id').val(kode_rekening_id)
             modal.find('#id').val(id)
-          })
-    </script>
-
-    <script>
-        $('#delete-bri').on('show.bs.modal', function (event) {
+            })
+        </script>
+    
+        <script>
+        $('#delete-bsm').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var no_urut = button.data('no_urut')
             var tanggal_1 = button.data('tanggal_1')
             var tanggal_2 = button.data('tanggal_2')
             var remark = button.data('remark')
-            var kode_teller = button.data('kode_teller')
+            var kode_rekening_bank = button.data('kode_rekening_bank')
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
@@ -177,42 +421,42 @@
             modal.find('#tanggal_1').val(tanggal_1)
             modal.find('#tanggal_2').val(tanggal_2)
             modal.find('#remark').val(remark)
-            modal.find('#kode_teller').val(kode_teller)
+            modal.find('#kode_rekening_bank').val(kode_rekening_bank)
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
             modal.find('#kode_rekening_id').val(kode_rekening_id)
             modal.find('#id').val(id)
-          })
-    </script>
+            })
+        </script>
 
-    <script>
-        $('#edit-kr').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var nama = button.data('nama')
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
+        <script>
+            $('#edit-kr').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var id = button.data('id')
+                var nama = button.data('nama')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
 
-            modal.find('#id').val(id)
-            modal.find('#nama').val(nama)
-        })
-    </script>
+                modal.find('#id').val(id)
+                modal.find('#nama').val(nama)
+            })
+        </script>
 
-    <script>
-        $('#delete-kr').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var nama = button.data('nama')
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
+        <script>
+            $('#delete-kr').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var id = button.data('id')
+                var nama = button.data('nama')
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
 
-            modal.find('#id').val(id)
-            modal.find('#nama').val(nama)
-        })
-    </script>
+                modal.find('#id').val(id)
+                modal.find('#nama').val(nama)
+            })
+        </script>
     
 
     {{-- some hidden comment --}}

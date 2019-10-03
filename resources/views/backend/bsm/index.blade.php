@@ -2,25 +2,25 @@
 @extends('layouts.master')
 
 @section('title')
-    BRI-Syariah
+    BSM
 @endsection
-@section('header') BRI-Syariah @endsection
+@section('header') BSM @endsection
 @section('button-add')
     <div class="section-header-button">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-bris">Tambah Data</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-bsm">Tambah Data</button>
     </div>
 @endsection
-@section('desc') Kumpulan data BRI Syariah @endsection
-@section('header-2') BRIS @endsection
+@section('desc') Kumpulan data BSM @endsection
+@section('header-2') BSM @endsection
 
 
 @section('content')
 
-<form class="form-inline" action="/admin/bri-syariah" method="GET">
+<form class="form-inline" action="/admin/bsm" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
     <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/bri-syariah') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <a class="btn bg-success" href="{{ url('admin/bsm') }}"><li class="fa fa-spinner fa-spin"></li></a>
   </div>
 </form>
 <br>
@@ -36,17 +36,17 @@
                   </th>
                   <th class="bg-info" style="color:black">Tanggal Posting</th>
                   <th class="bg-info" style="color:black">Tanggal Valuta</th>
-                  <th class="bg-info" style="color:black">Keterangan</th>
+                  <th class="bg-info" style="color:black">Deskripsi</th>
                   <th class="bg-info" style="color:black">No. Referensi</th>
                   <th class="bg-info" style="color:black">Debit</th>
                   <th class="bg-info" style="color:black">Kredit</th>
-                  <th class="bg-info" style="color:black">Saldo Akhir</th>
+                  <th class="bg-info" style="color:black">Saldo</th>
                   <th class="bg-info" style="color:black">Kode Rekening</th>
                   <th class="bg-info" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($bris as $data)
+                @foreach($bsm as $data)
                     <tr>
                         <td class="text-center">
                             {{ $loop->iteration }}
@@ -60,20 +60,20 @@
                         <td>Rp.{{ number_format($data->saldo, 0, '', '.') }}</td>
                         <td>{{ $data->kode_rekening->nama }} ({{ $data->kode_rekening_id }})</td>
                         <td >
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bris" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bris" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bsm" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-pen"></i></button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bsm" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
               </tbody>
             </table>
-              {{ $bris->links() }}
+              {{ $bsm->links() }}
           </div>
           <br>
         </div>
             <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $bris->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($bris->total(), 0, '', '.') }} <br/></h5>
+                <h5 style="color:black">Data Per Halaman : {{ $bsm->perPage() }} <br/></h5>
+                <h5 style="color:black">Jumlah Data : {{ number_format($bsm->total(), 0, '', '.') }} <br/></h5>
             </div>
       </div>
 @endsection 

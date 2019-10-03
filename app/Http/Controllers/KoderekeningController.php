@@ -16,25 +16,25 @@ class KoderekeningController extends Controller
      */
     public function getjson()
     {
-        $kode_rekening = KodeRekening::all();
+        $kode_rekening_id = KodeRekening::all();
         $response = [
             'success' => true,
-            'data' => $kode_rekening,
+            'data' => $kode_rekening_id,
             'message' => 'berhasil'
         ];
         return response()->json($response, 200);
     }
     public function index(Request $request)
     {
-        $kode_rekening = KodeRekening::when($request->keyword, function ($query) use ($request) {
+        $kode_rekening_id = KodeRekening::when($request->keyword, function ($query) use ($request) {
             $query->where('id', 'like', "%{$request->keyword}%")
                 ->orWhere('nama', 'like', "%{$request->keyword}%");
             })->orderBy('nama', 'ASC')->paginate(10);
 
-            $kode_rekening->appends($request->only('keyword'));
+            $kode_rekening_id->appends($request->only('keyword'));
         
 
-        return view('backend.kode_rekening.index', compact('kode_rekening'));
+        return view('backend.kode_rekening.index', compact('kode_rekening_id'));
     }
 
     /**
@@ -46,15 +46,15 @@ class KoderekeningController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|unique:kode_rekenings'
+            'nama' => 'required|unique:kode_rekening'
         ]);
 
-        $kode_rekening = new KodeRekening;
+        $kode_rekening_id = new KodeRekening;
 
-        $kode_rekening->nama = $request->nama;
-        $kode_rekening->save();
+        $kode_rekening_id->nama = $request->nama;
+        $kode_rekening_id->save();
 
-        toastr()->success('Data berhasil ditambah!', "$kode_rekening->nama");
+        toastr()->success('Data berhasil ditambah!', "$kode_rekening_id->nama");
 
         return redirect()->route('kode-rekening.index');
     }
@@ -69,15 +69,15 @@ class KoderekeningController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|unique:kode_rekenings'
+            'nama' => 'required|unique:kode_rekening'
         ]);
 
-        $kode_rekening = KodeRekening::findOrFail($request->id);
+        $kode_rekening_id = KodeRekening::findOrFail($request->id);
 
-        $kode_rekening->nama = $request->nama;
-        $kode_rekening->save();
+        $kode_rekening_id->nama = $request->nama;
+        $kode_rekening_id->save();
 
-        toastr()->warning('Data berhasil diubah!', "$kode_rekening->nama");
+        toastr()->warning('Data berhasil diubah!', "$kode_rekening_id->nama");
 
         return redirect()->route('kode-rekening.index');
     }
@@ -90,9 +90,9 @@ class KoderekeningController extends Controller
      */
     public function destroy(Request $request)
     {
-        $kode_rekening = KodeRekening::findOrFail($request->id);
-        $old = $kode_rekening->nama;
-        $kode_rekening->delete();
+        $kode_rekening_id = KodeRekening::findOrFail($request->id);
+        $old = $kode_rekening_id->nama;
+        $kode_rekening_id->delete();
 
         toastr()->warning('Data berhasil dihapus!', "$old");
 

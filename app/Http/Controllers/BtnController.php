@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\BrisData;
+use App\BtnData;
 use App\KodeRekening;
 use Session;
 
-class BrisController extends Controller
+class BtnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class BrisController extends Controller
      */
     public function getjson()
     {
-        $bris = BrisData::all();
+        $btn = BtnData::all();
         $response = [
             'success' => true,
-            'data' => $bris,
+            'data' => $btn,
             'message' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -28,22 +28,23 @@ class BrisController extends Controller
 
     public function index(Request $request)
     {
+        $btndata = BtnData::all();
         $kode_rekening_id = KodeRekening::all(); 
-        $bris = BrisData::when($request->keyword, function ($query) use ($request) {
+        $btn = BtnData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_2', 'like', "%{$request->keyword}%")
                 ->orWhere('remark', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_bank', 'like', "%{$request->keyword}%")
+                ->orWhere('waktu_posting', 'like', "%{$request->keyword}%")
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
                 ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
-            $bris->appends($request->only('keyword'));
+            $btn->appends($request->only('keyword'));
         
 
-        return view('backend.bris.index', compact('bris', 'kode_rekening_id'));
+        return view('backend.btn.index', compact('btndata', 'btn', 'kode_rekening_id'));
     }
 
     /**
@@ -55,25 +56,25 @@ class BrisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_urut' => 'required|unique:bris_data'
+            'no_urut' => 'required|unique:btn_data'
         ]);
 
-        $bris = new BrisData;
+        $btn = new BtnData;
 
-        $bris->no_urut = $request->no_urut;
-        $bris->tanggal_1 = $request->tanggal_1;
-        $bris->tanggal_2 = $request->tanggal_2;
-        $bris->remark = $request->remark;
-        $bris->kode_rekening_bank = $request->kode_rekening_bank;
-        $bris->debit = $request->debit;
-        $bris->kredit = $request->kredit;
-        $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
-        $bris->save();
+        $btn->no_urut = $request->no_urut;
+        $btn->tanggal_1 = $request->tanggal_1;
+        $btn->tanggal_2 = $request->tanggal_2;
+        $btn->remark = $request->remark;
+        $btn->waktu_posting = $request->waktu_posting;
+        $btn->debit = $request->debit;
+        $btn->kredit = $request->kredit;
+        $btn->saldo = $request->saldo;
+        $btn->kode_rekening_id = $request->kode_rekening_id;
+        $btn->save();
 
-        toastr()->success('Data berhasil ditambah!', "$bris->remark");
+        toastr()->success('Data berhasil ditambah!', "$btn->remark");
 
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('btn.index');
     }
 
     /**
@@ -86,21 +87,21 @@ class BrisController extends Controller
     public function update(Request $request, $id)
     {
 
-        $bris = BrisData::findOrFail($request->id);
+        $btn = BtnData::findOrFail($request->id);
 
-        $bris->tanggal_1 = $request->tanggal_1;
-        $bris->tanggal_2 = $request->tanggal_2;
-        $bris->remark = $request->remark;
-        $bris->kode_rekening_bank = $request->kode_rekening_bank;
-        $bris->debit = $request->debit;
-        $bris->kredit = $request->kredit;
-        $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
-        $bris->save();
+        $btn->tanggal_1 = $request->tanggal_1;
+        $btn->tanggal_2 = $request->tanggal_2;
+        $btn->remark = $request->remark;
+        $btn->waktu_posting = $request->waktu_posting;
+        $btn->debit = $request->debit;
+        $btn->kredit = $request->kredit;
+        $btn->saldo = $request->saldo;
+        $btn->kode_rekening_id = $request->kode_rekening_id;
+        $btn->save();
 
-        toastr()->warning('Data berhasil diubah!', "$bris->remark");
+        toastr()->warning('Data berhasil diubah!', "$btn->remark");
 
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('btn.index');
     }
 
     /**
@@ -111,12 +112,12 @@ class BrisController extends Controller
      */
     public function destroy(Request $request)
     {
-        $bris = BrisData::findOrFail($request->id);
-        $old = $bris->remark;
-        $bris->delete();
+        $btn = BtnData::findOrFail($request->id);
+        $old = $btn->remark;
+        $btn->delete();
         
         toastr()->error('Data berhasil dihapus!', "$old");
         
-        return redirect()->route('bri-syariah.index');
+        return redirect()->route('btn.index');
     }
 }

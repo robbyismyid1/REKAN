@@ -17,10 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::resource('/bri-syariah', 'BrisController');
     Route::resource('/bri', 'BriController');
+    Route::resource('/bri-syariah', 'BrisController');
+    Route::resource('/btn', 'BtnController');
+    Route::resource('/bjbs', 'BjbsController');
+    Route::resource('/bjbs-h2h', 'Bjbsh2hController');
+    Route::resource('/bsm', 'BsmController');
     Route::resource('/kode-rekening', 'KoderekeningController');
-    Route::resource('/perekening', 'PerekeningController');
 });

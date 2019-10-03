@@ -95,7 +95,7 @@
                       <div class="form-group">
                         <select class="form-control selectric" name="kode_rekening_id" required>
                             <option value="">- Kode Rekening -</option>
-                        @foreach($kode_rekening as $data)
+                        @foreach($kode_rekening_id as $data)
                             <option value="{{ $data->id }}">{{ $data->nama }}</option>
                         @endforeach
                       </select>
@@ -323,7 +323,7 @@
                             <label for="">Kode Rekening</label>
                             <select class="form-control selectric" name="kode_rekening_id" required>
                                 <option value="">- Pilih -</option>
-                              @foreach($kode_rekening as $data)
+                              @foreach($kode_rekening_id as $data)
                                   <option value="{{ $data->id }}">{{ $data->nama }}</option>
                               @endforeach
                             </select>

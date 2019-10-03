@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bris extends Model
+class BtnData extends Model
 {
     //
     protected $fillable = [
-        'no_urut', 'tanggal_1', 'tanggal_2', 'remark', 'kode_rekening_bank', 'kredit', 'debit', 'saldo', 'kode_rekening_id'
+        'no_urut', 'tanggal_1', 'tanggal_2', 'remark', 'waktu_posting', 'kredit', 'debit', 'saldo', 'kode_rekening_id'
        ];
     public $timestamp = true;
 

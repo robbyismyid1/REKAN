@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrisTable extends Migration
+class CreateBsmDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBrisTable extends Migration
      */
     public function up()
     {
-        Schema::create('bris', function (Blueprint $table) {
+        Schema::create('bsm_data', function (Blueprint $table) {
             $table->bigInteger('no_urut');
             $table->date('tanggal_1');
             $table->date('tanggal_2');
@@ -36,6 +36,6 @@ class CreateBrisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bris');
+        Schema::dropIfExists('bsm_data');
     }
 }

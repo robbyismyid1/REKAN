@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\BriData;
+use App\BjbsData;
 use App\KodeRekening;
 use Session;
 
-class BriController extends Controller
+class BjbsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class BriController extends Controller
      */
     public function getjson()
     {
-        $bri = BriData::all();
+        $bjbs = BjbsData::all();
         $response = [
             'success' => true,
-            'data' => $bri,
+            'data' => $bjbs,
             'message' => 'berhasil'
         ];
         return response()->json($response, 200);
@@ -29,21 +29,21 @@ class BriController extends Controller
     public function index(Request $request)
     {
         $kode_rekening_id = KodeRekening::all(); 
-        $bri = BriData::when($request->keyword, function ($query) use ($request) {
+        $bjbs = BjbsData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
-                ->orWhere('tanggal_2', 'like', "%{$request->keyword}%")
+                ->orWhere('kode', 'like', "%{$request->keyword}%")
                 ->orWhere('remark', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_teller', 'like', "%{$request->keyword}%")
+                ->orWhere('no_bukti', 'like', "%{$request->keyword}%")
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
                 ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
-            $bri->appends($request->only('keyword'));
+            $bjbs->appends($request->only('keyword'));
         
 
-        return view('backend.bri.index', compact('bri', 'kode_rekening_id'));
+        return view('backend.bjbs.index', compact('bjbs', 'kode_rekening_id'));
     }
 
     /**
@@ -55,25 +55,25 @@ class BriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_urut' => 'required|unique:bri_data'
+            'no_urut' => 'required|unique:bjbs_data'
         ]);
 
-        $bri = new BriData;
+        $bjbs = new BjbsData;
 
-        $bri->no_urut = $request->no_urut;
-        $bri->tanggal_1 = $request->tanggal_1;
-        $bri->tanggal_2 = $request->tanggal_2;
-        $bri->remark = $request->remark;
-        $bri->kode_teller = $request->kode_teller;
-        $bri->debit = $request->debit;
-        $bri->kredit = $request->kredit;
-        $bri->saldo = $request->saldo;
-        $bri->kode_rekening_id = $request->kode_rekening_id;
-        $bri->save();
+        $bjbs->no_urut = $request->no_urut;
+        $bjbs->tanggal_1 = $request->tanggal_1;
+        $bjbs->kode = $request->kode;
+        $bjbs->remark = $request->remark;
+        $bjbs->no_bukti = $request->no_bukti;
+        $bjbs->debit = $request->debit;
+        $bjbs->kredit = $request->kredit;
+        $bjbs->saldo = $request->saldo;
+        $bjbs->kode_rekening_id = $request->kode_rekening_id;
+        $bjbs->save();
 
-        toastr()->success('Data berhasil ditambah!', "$bri->remark");
+        toastr()->success('Data berhasil ditambah!', "$bjbs->remark");
 
-        return redirect()->route('bri.index');
+        return redirect()->route('bjbs.index');
     }
 
     /**
@@ -86,21 +86,21 @@ class BriController extends Controller
     public function update(Request $request, $id)
     {
 
-        $bri = BriData::findOrFail($request->id);
+        $bjbs = BjbsData::findOrFail($request->id);
 
-        $bri->tanggal_1 = $request->tanggal_1;
-        $bri->tanggal_2 = $request->tanggal_2;
-        $bri->remark = $request->remark;
-        $bri->kode_teller = $request->kode_teller;
-        $bri->debit = $request->debit;
-        $bri->kredit = $request->kredit;
-        $bri->saldo = $request->saldo;
-        $bri->kode_rekening_id = $request->kode_rekening_id;
-        $bri->save();
+        $bjbs->tanggal_1 = $request->tanggal_1;
+        $bjbs->kode = $request->kode;
+        $bjbs->remark = $request->remark;
+        $bjbs->no_bukti = $request->no_bukti;
+        $bjbs->debit = $request->debit;
+        $bjbs->kredit = $request->kredit;
+        $bjbs->saldo = $request->saldo;
+        $bjbs->kode_rekening_id = $request->kode_rekening_id;
+        $bjbs->save();
 
-        toastr()->warning('Data berhasil diubah!', "$bri->remark");
+        toastr()->warning('Data berhasil diubah!', "$bjbs->remark");
 
-        return redirect()->route('bri.index');
+        return redirect()->route('bjbs.index');
     }
 
     /**
@@ -111,12 +111,12 @@ class BriController extends Controller
      */
     public function destroy(Request $request)
     {
-        $bri = BriData::findOrFail($request->id);
-        $old = $bri->remark;
-        $bri->delete();
+        $bjbs = BjbsData::findOrFail($request->id);
+        $old = $bjbs->remark;
+        $bjbs->delete();
         
         toastr()->error('Data berhasil dihapus!', "$old");
         
-        return redirect()->route('bri.index');
+        return redirect()->route('bjbs.index');
     }
 }
