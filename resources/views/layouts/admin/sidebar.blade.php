@@ -32,7 +32,7 @@
             @if (request()->is('admin/btn'))
             class="dropdown active"
             @endif
-            @if (request()->is('admin/kode-rekening'))
+            @if (request()->is('admin/kode-transaksi'))
             class="dropdown active"
             @endif
             >
@@ -44,7 +44,7 @@
                     <li class="{{ (request()->is('admin/bri-syariah')) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/admin/bri-syariah') }}">BRIS</a></li>
                     <li class="{{ (request()->is('admin/bsm')) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/admin/bsm') }}">BSM</a></li>
                     <li class="{{ (request()->is('admin/btn')) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/admin/btn') }}">BTN</a></li>
-                    <li class="{{ (request()->is('admin/kode-rekening')) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/admin/kode-rekening') }}">Kode Rekening</a></li>
+                    <li class="{{ (request()->is('admin/kode-transaksi')) ? 'active' : '' }}"><a class="nav-link" href="{{ url('/admin/kode-transaksi') }}">Kode Transaksi</a></li>
                 </ul>
             </li>
     </aside>

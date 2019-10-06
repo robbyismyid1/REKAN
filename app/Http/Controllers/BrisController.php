@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\BrisData;
-use App\KodeRekening;
+use App\KodeTransaksi;
 use Session;
 
 class BrisController extends Controller
@@ -28,7 +28,7 @@ class BrisController extends Controller
 
     public function index(Request $request)
     {
-        $kode_rekening_id = KodeRekening::all(); 
+        $kode_transaksi_id = KodeTransaksi::all(); 
         $bris = BrisData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -38,12 +38,12 @@ class BrisController extends Controller
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
+                ->orWhere('kode_transaksi_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
             $bris->appends($request->only('keyword'));
         
 
-        return view('backend.bris.index', compact('bris', 'kode_rekening_id'));
+        return view('backend.bris.index', compact('bris', 'kode_transaksi_id'));
     }
 
     /**
@@ -68,7 +68,7 @@ class BrisController extends Controller
         $bris->debit = $request->debit;
         $bris->kredit = $request->kredit;
         $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
+        $bris->kode_transaksi_id = $request->kode_transaksi_id;
         $bris->save();
 
         toastr()->success('Data berhasil ditambah!', "$bris->remark");
@@ -95,7 +95,7 @@ class BrisController extends Controller
         $bris->debit = $request->debit;
         $bris->kredit = $request->kredit;
         $bris->saldo = $request->saldo;
-        $bris->kode_rekening_id = $request->kode_rekening_id;
+        $bris->kode_transaksi_id = $request->kode_transaksi_id;
         $bris->save();
 
         toastr()->warning('Data berhasil diubah!', "$bris->remark");

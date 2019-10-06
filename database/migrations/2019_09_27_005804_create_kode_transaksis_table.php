@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKodeRekeningsTable extends Migration
+class CreateKodeTransaksisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateKodeRekeningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kode_rekenings', function (Blueprint $table) {
+        Schema::create('kode_transaksis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
+            $table->string('nama_kt')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateKodeRekeningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kode_rekenings');
+        Schema::dropIfExists('kode_transaksis');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\BsmData;
-use App\KodeRekening;
+use App\KodeTransaksi;
 use Session;
 
 class BsmController extends Controller
@@ -28,7 +28,7 @@ class BsmController extends Controller
 
     public function index(Request $request)
     {
-        $kode_rekening_id = KodeRekening::all(); 
+        $kode_transaksi_id = KodeTransaksi::all(); 
         $bsm = BsmData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -38,12 +38,12 @@ class BsmController extends Controller
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
+                ->orWhere('kode_transaksi_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
             $bsm->appends($request->only('keyword'));
         
 
-        return view('backend.bsm.index', compact('bsm', 'kode_rekening_id'));
+        return view('backend.bsm.index', compact('bsm', 'kode_transaksi_id'));
     }
 
     /**
@@ -68,7 +68,7 @@ class BsmController extends Controller
         $bsm->debit = $request->debit;
         $bsm->kredit = $request->kredit;
         $bsm->saldo = $request->saldo;
-        $bsm->kode_rekening_id = $request->kode_rekening_id;
+        $bsm->kode_transaksi_id = $request->kode_transaksi_id;
         $bsm->save();
 
         toastr()->success('Data berhasil ditambah!', "$bsm->remark");
@@ -95,7 +95,7 @@ class BsmController extends Controller
         $bsm->debit = $request->debit;
         $bsm->kredit = $request->kredit;
         $bsm->saldo = $request->saldo;
-        $bsm->kode_rekening_id = $request->kode_rekening_id;
+        $bsm->kode_transaksi_id = $request->kode_transaksi_id;
         $bsm->save();
 
         toastr()->warning('Data berhasil diubah!', "$bsm->remark");

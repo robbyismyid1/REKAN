@@ -52,7 +52,7 @@
             @include('backend.btn.modal')
             @include('backend.bri.modal')
             @include('backend.bris.modal')
-            @include('backend.kode_rekening.modal')
+            @include('backend.kode_transaksi.modal')
 
             {{-- Footer --}}
             <footer class="main-footer">
@@ -81,7 +81,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -95,7 +95,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
             })
         </script>
@@ -111,7 +111,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -125,7 +125,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
             })
         </script>
@@ -141,7 +141,7 @@
                 var debit = button.data('debit')
                 var kredit = button.data('kredit')
                 var saldo = button.data('saldo')
-                var kode_rekening_id = button.data('kode_rekening_id')
+                var kode_transaksi_id = button.data('kode_transaksi_id')
                 var id = button.data('id')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -155,7 +155,7 @@
                 modal.find('#debit').val(debit)
                 modal.find('#kredit').val(kredit)
                 modal.find('#saldo').val(saldo)
-                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#kode_transaksi_id').val(kode_transaksi_id)
                 modal.find('#id').val(id)
             })
         </script>
@@ -171,7 +171,7 @@
                 var debit = button.data('debit')
                 var kredit = button.data('kredit')
                 var saldo = button.data('saldo')
-                var kode_rekening_id = button.data('kode_rekening_id')
+                var kode_transaksi_id = button.data('kode_transaksi_id')
                 var id = button.data('id')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -185,7 +185,7 @@
                 modal.find('#debit').val(debit)
                 modal.find('#kredit').val(kredit)
                 modal.find('#saldo').val(saldo)
-                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#kode_transaksi_id').val(kode_transaksi_id)
                 modal.find('#id').val(id)
             })
         </script>
@@ -201,7 +201,7 @@
                 var debit = button.data('debit')
                 var kredit = button.data('kredit')
                 var saldo = button.data('saldo')
-                var kode_rekening_id = button.data('kode_rekening_id')
+                var kode_transaksi_id = button.data('kode_transaksi_id')
                 var id = button.data('id')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -215,7 +215,7 @@
                 modal.find('#debit').val(debit)
                 modal.find('#kredit').val(kredit)
                 modal.find('#saldo').val(saldo)
-                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#kode_transaksi_id').val(kode_transaksi_id)
                 modal.find('#id').val(id)
             })
             </script>
@@ -231,7 +231,7 @@
                 var debit = button.data('debit')
                 var kredit = button.data('kredit')
                 var saldo = button.data('saldo')
-                var kode_rekening_id = button.data('kode_rekening_id')
+                var kode_transaksi_id = button.data('kode_transaksi_id')
                 var id = button.data('id')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -245,12 +245,12 @@
                 modal.find('#debit').val(debit)
                 modal.find('#kredit').val(kredit)
                 modal.find('#saldo').val(saldo)
-                modal.find('#kode_rekening_id').val(kode_rekening_id)
+                modal.find('#kode_transaksi_id').val(kode_transaksi_id)
                 modal.find('#id').val(id)
             })
         </script>
 
-<script>
+        <script>
         $('#edit-bjbsh2h').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var no_urut = button.data('no_urut')
@@ -261,7 +261,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -275,7 +275,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
         })
         </script>
@@ -291,7 +291,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -305,7 +305,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
         })
     </script>
@@ -321,7 +321,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -335,7 +335,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
         })
         </script>
@@ -351,7 +351,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -365,7 +365,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
         })
         </script>
@@ -381,7 +381,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -395,7 +395,7 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
             })
         </script>
@@ -411,7 +411,7 @@
             var debit = button.data('debit')
             var kredit = button.data('kredit')
             var saldo = button.data('saldo')
-            var kode_rekening_id = button.data('kode_rekening_id')
+            var kode_transaksi_id = button.data('kode_transaksi_id')
             var id = button.data('id')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -425,36 +425,40 @@
             modal.find('#debit').val(debit)
             modal.find('#kredit').val(kredit)
             modal.find('#saldo').val(saldo)
-            modal.find('#kode_rekening_id').val(kode_rekening_id)
+            modal.find('#kode_transaksi_id').val(kode_transaksi_id)
             modal.find('#id').val(id)
             })
         </script>
 
         <script>
-            $('#edit-kr').on('show.bs.modal', function (event) {
+            $('#edit-transaksi').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
                 var id = button.data('id')
                 var nama = button.data('nama')
+                var nama_kt = button.data('nama_kt')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
 
                 modal.find('#id').val(id)
                 modal.find('#nama').val(nama)
+                modal.find('#nama_kt').val(nama_kt)
             })
         </script>
 
         <script>
-            $('#delete-kr').on('show.bs.modal', function (event) {
+            $('#delete-transaksi').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget)
                 var id = button.data('id')
                 var nama = button.data('nama')
+                var nama_kt = button.data('nama_kt')
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
 
                 modal.find('#id').val(id)
                 modal.find('#nama').val(nama)
+                modal.find('#nama_kt').val(nama_kt)
             })
         </script>
     

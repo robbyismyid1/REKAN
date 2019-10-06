@@ -93,9 +93,9 @@
                           @endif
                       </div>
                       <div class="form-group">
-                        <select class="form-control selectric" name="kode_rekening_id" required>
-                            <option value="">- Kode Rekening -</option>
-                        @foreach($kode_rekening_id as $data)
+                        <select class="form-control selectric" name="kode_transaksi_id" required>
+                            <option value="">- Kode Transaksi -</option>
+                        @foreach($kode_transaksi_id as $data)
                             <option value="{{ $data->id }}">{{ $data->nama }}</option>
                         @endforeach
                       </select>
@@ -204,12 +204,12 @@
                               @endif
                           </div>
                           <div class="form-group">
-                            <label for="">Kode Rekening</label>
-                            <input disabled readonly type="text" name="kode_rekening_id" id="kode_rekening_id" class="form-control{{ $errors->has('kode_rekening_id') ? ' is-invalid' : '' }}" placeholder="kode_rekening_id" aria-describedby="helpId">
+                            <label for="">Kode Transaksi</label>
+                            <input disabled readonly type="text" name="kode_transaksi_id" id="kode_transaksi_id" class="form-control{{ $errors->has('kode_transaksi_id') ? ' is-invalid' : '' }}" placeholder="kode_transaksi_id" aria-describedby="helpId">
 
-                            @if ($errors->has('kode_rekening_id'))
+                            @if ($errors->has('kode_transaksi_id'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('kode_rekening_id') }}</strong>
+                                    <strong>{{ $errors->first('kode_transaksi_id') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -320,10 +320,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="">Kode Rekening</label>
-                            <select class="form-control selectric" name="kode_rekening_id" required>
+                            <label for="">Kode Transaksi</label>
+                            <select class="form-control selectric" name="kode_transaksi_id" required>
                                 <option value="">- Pilih -</option>
-                              @foreach($kode_rekening_id as $data)
+                              @foreach($kode_transaksi_id as $data)
                                   <option value="{{ $data->id }}">{{ $data->nama }}</option>
                               @endforeach
                             </select>

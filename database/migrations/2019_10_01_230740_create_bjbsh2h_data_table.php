@@ -22,8 +22,8 @@ class CreateBjbsh2hDataTable extends Migration
             $table->bigInteger('debit');
             $table->bigInteger('kredit');
             $table->bigInteger('saldo');
-            $table->unsignedBigInteger('kode_rekening_id');
-            $table->foreign('kode_rekening_id')->references('id')->on('kode_rekenings');
+            $table->unsignedBigInteger('kode_transaksi_id');
+            $table->foreign('kode_transaksi_id')->references('id')->on('kode_transaksis');
             $table->bigIncrements('id');
             $table->timestamps();
         });

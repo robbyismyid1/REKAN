@@ -2,25 +2,25 @@
 @extends('layouts.master')
 
 @section('title')
-    Kode Rekening
+    Kode Transaksi
 @endsection
-@section('header') Kode Rekening @endsection
+@section('header') Kode Transaksi @endsection
 @section('button-add')
     <div class="section-header-button">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-kr">Tambah Data</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-transaksi">Tambah Data</button>
     </div>
 @endsection
-@section('desc') Kumpulan data Kode Rekening @endsection
-@section('header-2') Kode Rekening @endsection
+@section('desc') Kumpulan data Kode Transaksi @endsection
+@section('header-2') Kode Transaksi @endsection
 
 
 @section('content')
 
-<form class="form-inline" action="/admin/kode-rekening" method="GET">
+<form class="form-inline" action="/admin/kode-transaki" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
     <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/kode-rekening') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <a class="btn bg-success" href="{{ url('admin/kode-transaksi') }}"><li class="fa fa-spinner fa-spin"></li></a>
   </div>
 </form>
 <br>
@@ -33,32 +33,42 @@
                   <th class="text-center bg-info" class="text-center" style="color:black">
                     ID
                   </th>
-                  <th class="bg-info" style="color:black">Nama Kode Rekening</th>
+                  <th class="bg-info" style="color:black">Kode Transaksi</th>
+                  <th class="bg-info" style="color:black">Nama</th>
                   <th class="bg-info" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($kode_rekening_id as $data)
+                @foreach($kode_transaksi_id as $data)
                     <tr>
                         <td class="text-center">
                             {{ $data->id }}
                         </td>
                         <td>{{ $data->nama }}</td>
+                        <td>{{ $data->nama_kt }}</td>
                         <td >
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-kr" data-id="{{ $data->id }}" data-nama="{{ $data->nama }}"><i class="fa fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-kr" data-id="{{ $data->id }}" data-nama="{{ $data->nama }}" ><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-transaksi" 
+                            data-id="{{ $data->id }}" 
+                            data-nama="{{ $data->nama }}" 
+                            data-nama_kt="{{ $data->nama_kt }}">
+                            <i class="fa fa-pen"></i></button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-transaksi" 
+                            data-id="{{ $data->id }}" 
+                            data-nama="{{ $data->nama }}" 
+                            data-nama_kt="{{ $data->nama_kt }}">
+                            <i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
               </tbody>
             </table>
-              {{ $kode_rekening_id->links() }}
+              {{ $kode_transaksi_id->links() }}
           </div>
           <br>
         </div>
             <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $kode_rekening_id->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($kode_rekening_id->total(), 0, '', '.') }} <br/></h5>
+                <h5 style="color:black">Data Per Halaman : {{ $kode_transaksi_id->perPage() }} <br/></h5>
+                <h5 style="color:black">Jumlah Data : {{ number_format($kode_transaksi_id->total(), 0, '', '.') }} <br/></h5>
             </div>
       </div>
 @endsection 

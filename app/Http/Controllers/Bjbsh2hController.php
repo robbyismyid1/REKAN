@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Bjbsh2hData;
-use App\KodeRekening;
+use App\KodeTransaksi;
 use Session;
 
 class Bjbsh2hController extends Controller
@@ -28,7 +28,7 @@ class Bjbsh2hController extends Controller
 
     public function index(Request $request)
     {
-        $kode_rekening_id = KodeRekening::all(); 
+        $kode_transaksi_id = KodeTransaksi::all(); 
         $bjbsh2h = Bjbsh2hData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -38,12 +38,12 @@ class Bjbsh2hController extends Controller
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
+                ->orWhere('kode_transaksi_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
             $bjbsh2h->appends($request->only('keyword'));
         
 
-        return view('backend.bjbsh2h.index', compact('bjbsh2h', 'kode_rekening_id'));
+        return view('backend.bjbsh2h.index', compact('bjbsh2h', 'kode_transaksi_id'));
     }
 
     /**
@@ -68,7 +68,7 @@ class Bjbsh2hController extends Controller
         $bjbsh2h->debit = $request->debit;
         $bjbsh2h->kredit = $request->kredit;
         $bjbsh2h->saldo = $request->saldo;
-        $bjbsh2h->kode_rekening_id = $request->kode_rekening_id;
+        $bjbsh2h->kode_transaksi_id = $request->kode_transaksi_id;
         $bjbsh2h->save();
 
         toastr()->success('Data berhasil ditambah!', "$bjbsh2h->remark");
@@ -95,7 +95,7 @@ class Bjbsh2hController extends Controller
         $bjbsh2h->debit = $request->debit;
         $bjbsh2h->kredit = $request->kredit;
         $bjbsh2h->saldo = $request->saldo;
-        $bjbsh2h->kode_rekening_id = $request->kode_rekening_id;
+        $bjbsh2h->kode_transaksi_id = $request->kode_transaksi_id;
         $bjbsh2h->save();
 
         toastr()->warning('Data berhasil diubah!', "$bjbsh2h->remark");

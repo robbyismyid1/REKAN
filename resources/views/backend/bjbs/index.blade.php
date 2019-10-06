@@ -40,7 +40,7 @@
                   <th class="bg-info" style="color:black">Mutasi Debit</th>
                   <th class="bg-info" style="color:black">Mutasi Kredit</th>
                   <th class="bg-info" style="color:black">Saldo</th>
-                  <th class="bg-info" style="color:black">Kode Rekening</th>
+                  <th class="bg-info" style="color:black">Kode Transaksi</th>
                   <th class="bg-info" style="color:black">Action</th>
                 </tr>
               </thead>
@@ -57,10 +57,32 @@
                         <td>Rp.{{ number_format($data->debit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->saldo, 0, '', '.') }}</td>
-                        <td>{{ $data->kode_rekening->nama }} ({{ $data->kode_rekening_id }})</td>
+                        <td>{{ $data->kode_transaksi->nama }} ({{ $data->kode_transaksi_id }})</td>
                         <td >
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bjbs" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-kode="{{ $data->kode }}" data-remark="{{ $data->remark }}" data-no_bukti="{{ $data->no_bukti }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bjbs" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-kode="{{ $data->kode }}" data-remark="{{ $data->remark }}" data-no_bukti="{{ $data->no_bukti }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bjbs" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-kode="{{ $data->kode }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-no_bukti="{{ $data->no_bukti }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            <i class="fa fa-pen"></i></button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bjbs" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-kode="{{ $data->kode }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-no_bukti="{{ $data->no_bukti }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            <i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach

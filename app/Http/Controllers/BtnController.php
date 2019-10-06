@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\BtnData;
-use App\KodeRekening;
+use App\KodeTransaksi;
 use Session;
 
 class BtnController extends Controller
@@ -29,7 +29,7 @@ class BtnController extends Controller
     public function index(Request $request)
     {
         $btndata = BtnData::all();
-        $kode_rekening_id = KodeRekening::all(); 
+        $kode_transaksi_id = KodeTransaksi::all(); 
         $btn = BtnData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -39,12 +39,12 @@ class BtnController extends Controller
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
+                ->orWhere('kode_transaksi_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
             $btn->appends($request->only('keyword'));
         
 
-        return view('backend.btn.index', compact('btndata', 'btn', 'kode_rekening_id'));
+        return view('backend.btn.index', compact('btndata', 'btn', 'kode_transaksi_id'));
     }
 
     /**
@@ -69,7 +69,7 @@ class BtnController extends Controller
         $btn->debit = $request->debit;
         $btn->kredit = $request->kredit;
         $btn->saldo = $request->saldo;
-        $btn->kode_rekening_id = $request->kode_rekening_id;
+        $btn->kode_transaksi_id = $request->kode_transaksi_id;
         $btn->save();
 
         toastr()->success('Data berhasil ditambah!', "$btn->remark");
@@ -96,7 +96,7 @@ class BtnController extends Controller
         $btn->debit = $request->debit;
         $btn->kredit = $request->kredit;
         $btn->saldo = $request->saldo;
-        $btn->kode_rekening_id = $request->kode_rekening_id;
+        $btn->kode_transaksi_id = $request->kode_transaksi_id;
         $btn->save();
 
         toastr()->warning('Data berhasil diubah!', "$btn->remark");

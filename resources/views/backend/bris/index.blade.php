@@ -41,7 +41,7 @@
                   <th class="bg-info" style="color:black">Debit</th>
                   <th class="bg-info" style="color:black">Kredit</th>
                   <th class="bg-info" style="color:black">Saldo Akhir</th>
-                  <th class="bg-info" style="color:black">Kode Rekening</th>
+                  <th class="bg-info" style="color:black">Kode Transaksi</th>
                   <th class="bg-info" style="color:black">Action</th>
                 </tr>
               </thead>
@@ -58,10 +58,32 @@
                         <td>Rp.{{ number_format($data->debit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->saldo, 0, '', '.') }}</td>
-                        <td>{{ $data->kode_rekening->nama }} ({{ $data->kode_rekening_id }})</td>
+                        <td>{{ $data->kode_transaksi->nama }} ({{ $data->kode_transaksi_id }})</td>
                         <td >
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bris" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bris" data-id="{{ $data->id }}" data-no_urut="{{ $data->no_urut }}" data-tanggal_1="{{ $data->tanggal_1 }}" data-tanggal_2="{{ $data->tanggal_2 }}" data-remark="{{ $data->remark }}" data-kode_rekening_bank="{{ $data->kode_rekening_bank }}" data-debit="{{ $data->debit }}" data-kredit="{{ $data->kredit }}" data-saldo="{{ $data->saldo }}" data-kode_rekening_id="{{ $data->kode_rekening->nama }}"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bris" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-tanggal_2="{{ $data->tanggal_2 }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-kode_transaksi_bank="{{ $data->kode_transaksi_bank }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            <i class="fa fa-pen"></i></button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bris" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-tanggal_2="{{ $data->tanggal_2 }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-kode_transaksi_bank="{{ $data->kode_transaksi_bank }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            <i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach

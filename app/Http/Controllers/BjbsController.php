@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\BjbsData;
-use App\KodeRekening;
+use App\KodeTransaksi;
 use Session;
 
 class BjbsController extends Controller
@@ -28,7 +28,7 @@ class BjbsController extends Controller
 
     public function index(Request $request)
     {
-        $kode_rekening_id = KodeRekening::all(); 
+        $kode_transaksi_id = KodeTransaksi::all(); 
         $bjbs = BjbsData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -38,12 +38,12 @@ class BjbsController extends Controller
                 ->orWhere('debit', 'like', "%{$request->keyword}%")
                 ->orWhere('kredit', 'like', "%{$request->keyword}%")
                 ->orWhere('saldo', 'like', "%{$request->keyword}%")
-                ->orWhere('kode_rekening_id', 'like', "%{$request->keyword}%");
+                ->orWhere('kode_transaksi_id', 'like', "%{$request->keyword}%");
             })->latest()->paginate(10);
             $bjbs->appends($request->only('keyword'));
         
 
-        return view('backend.bjbs.index', compact('bjbs', 'kode_rekening_id'));
+        return view('backend.bjbs.index', compact('bjbs', 'kode_transaksi_id'));
     }
 
     /**
@@ -68,7 +68,7 @@ class BjbsController extends Controller
         $bjbs->debit = $request->debit;
         $bjbs->kredit = $request->kredit;
         $bjbs->saldo = $request->saldo;
-        $bjbs->kode_rekening_id = $request->kode_rekening_id;
+        $bjbs->kode_transaksi_id = $request->kode_transaksi_id;
         $bjbs->save();
 
         toastr()->success('Data berhasil ditambah!', "$bjbs->remark");
@@ -95,7 +95,7 @@ class BjbsController extends Controller
         $bjbs->debit = $request->debit;
         $bjbs->kredit = $request->kredit;
         $bjbs->saldo = $request->saldo;
-        $bjbs->kode_rekening_id = $request->kode_rekening_id;
+        $bjbs->kode_transaksi_id = $request->kode_transaksi_id;
         $bjbs->save();
 
         toastr()->warning('Data berhasil diubah!', "$bjbs->remark");

@@ -24,5 +24,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('/bjbs', 'BjbsController');
     Route::resource('/bjbs-h2h', 'Bjbsh2hController');
     Route::resource('/bsm', 'BsmController');
-    Route::resource('/kode-rekening', 'KoderekeningController');
+    Route::resource('/kode-transaksi', 'KodetransaksiController');
 });
