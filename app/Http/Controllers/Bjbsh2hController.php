@@ -26,6 +26,11 @@ class Bjbsh2hController extends Controller
         return response()->json($response, 200);
     }
 
+    public function home()
+    {
+        return view('backend.bjbsh2h.home');
+    }
+
     public function index(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all(); 

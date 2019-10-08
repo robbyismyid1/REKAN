@@ -26,6 +26,11 @@ class BtnController extends Controller
         return response()->json($response, 200);
     }
 
+    public function home()
+    {
+        return view('backend.btn.home');
+    }
+
     public function index(Request $request)
     {
         $btndata = BtnData::all();

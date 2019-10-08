@@ -16,7 +16,7 @@
 
 @section('content')
 
-<form class="form-inline" action="/admin/kode-transaki" method="GET">
+<form class="form-inline" action="/admin/kode-transaksi" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
     <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;

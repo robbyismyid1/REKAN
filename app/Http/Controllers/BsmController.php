@@ -26,6 +26,11 @@ class BsmController extends Controller
         return response()->json($response, 200);
     }
 
+    public function home()
+    {
+        return view('backend.bsm.home');
+    }
+
     public function index(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all(); 

@@ -26,6 +26,11 @@ class BrisController extends Controller
         return response()->json($response, 200);
     }
 
+    public function home()
+    {
+        return view('backend.bris.home');
+    }
+
     public function index(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all(); 

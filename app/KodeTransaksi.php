@@ -8,7 +8,7 @@ use Session;
 class KodeTransaksi extends Model
 {
     //
-    protected $fillable = ['nama'];
+    protected $fillable = ['nama', 'nama_kt'];
     public $timestamps = true;
     
     public function bris_data()

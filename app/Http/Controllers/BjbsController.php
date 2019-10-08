@@ -26,6 +26,25 @@ class BjbsController extends Controller
         return response()->json($response, 200);
     }
 
+    public function home()
+    {
+        return view('backend.bjbs.home');
+    }
+
+    public function rekaptahun(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all(); 
+        $bjbsrekap = BjbsData::when($request->keyword, function ($query) use ($request) {
+            $query->where('kode_rekening_bank', 'like', "%{$request->keyword}%")
+                ->orWhere('debit', 'like', "%{$request->keyword}%")
+                ->orWhere('kredit', 'like', "%{$request->keyword}%");
+            })->latest()->paginate(10);
+            $bjbsrekap->appends($request->only('keyword'));
+        
+
+        return view('backend.bjbs.rekap-tahun', compact('bjbsrekap', 'kode_transaksi_id'));
+    }
+
     public function index(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all(); 
