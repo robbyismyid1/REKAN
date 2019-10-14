@@ -12,13 +12,13 @@
 
 @section('content')
 
-<form class="form-inline" action="/admin/bjbs-rekap" method="GET">
+{{-- <form class="form-inline" action="/admin/bjbs-rekap" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
     <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
     <a class="btn bg-success" href="{{ url('admin/bjbs-rekap') }}"><li class="fa fa-spinner fa-spin"></li></a>
   </div>
-</form>
+</form> --}}
 <br>
 
     <div class="card">        
@@ -36,26 +36,26 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($bjbsrekap as $data)
+                @foreach($kode_transaksi_id as $data)
                     <tr>
                         <td class="text-center">
                             {{ $loop->iteration }}
                         </td>
-                        <td>{{ $data->kode_transaksi->nama }}</td>
-                        <td>{{ $data->kode_transaksi->nama_kt }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->nama_kt }}</td>
                         <td>Rp.{{ number_format($data->debit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
                     </tr>
                 @endforeach
               </tbody>
             </table>
-              {{ $bjbsrekap->links() }}
+              {{ $kode_transaksi_id->links() }}
           </div>
           <br>
         </div>
             <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $bjbsrekap->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($bjbsrekap->total(), 0, '', '.') }} <br/></h5>
+                <h5 style="color:black">Data Per Halaman : {{ $kode_transaksi_id->perPage() }} <br/></h5>
+                <h5 style="color:black">Jumlah Data : {{ number_format($kode_transaksi_id->total(), 0, '', '.') }} <br/></h5>
             </div>
       </div>
 @endsection 
