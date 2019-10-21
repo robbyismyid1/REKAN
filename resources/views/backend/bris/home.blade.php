@@ -2,11 +2,11 @@
 @extends('layouts.master1')
 
 @section('title')
-    BRIS Landing Page
+    BRI-Syariah Landing Page
 @endsection
-@section('header') BRIS @endsection
-@section('desc') Landing page BRIS @endsection
-@section('header-2') BRIS @endsection
+@section('header') BRI-Syariah @endsection
+@section('desc') Landing page BRI-Syariah @endsection
+@section('header-2') BRI-Syariah @endsection
 
 
 @section('content')
@@ -16,27 +16,58 @@
 
 <div class="row">
         <div class="col-sm-6">
-            <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <a style="color:black" href="{{ route('bri-syariah.index') }}"><h5 class="card-title"><center>Index BRI</center></h5></a>
-                <p class="card-text">Yang isinya adalah kumpulan seluruh data BRIS</p>
-                <a href="{{ route('bri-syariah.index') }}" class="btn btn-primary">Go</a>
+                <div class="card">
+                    <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 style="color:black" class="card-title"><center>Index BRI-Syariah</center></h5>
+                    <p class="card-text">Yang isinya adalah kumpulan seluruh data BRI-Syariah</p>
+                        <div class="card-deck">
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Perbulan</h5>
+                                <p class="card-text">Index BRI-Syariah perbulan</p>
+                                <ul>
+                                    <li><a href="#">Januari</a></li>
+                                    <li><a href="#">Februari</a></li>
+                                    <li><a href="#">Maret</a></li>
+                                    <li><a href="#">April</a></li>
+                                    <li><a href="#">Mei</a></li>
+                                    <li><a href="#">Juni</a></li>
+                                    <li><a href="#">Juli</a></li>
+                                    <li><a href="#">Agustus</a></li>
+                                    <li><a href="#">September</a></li>
+                                    <li><a href="#">Oktober</a></li>
+                                    <li><a href="#">November</a></li>
+                                    <li><a href="#">Desember</a></li>
+    
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Pertahun</h5>
+                                <p class="card-text">Index BRI-Syariah pertahun</p>
+                                <a href="/admin/bri-syariah" class="btn btn-primary">Go</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
           </div>
-        </div>
         <div class="col-sm-6">
             <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 style="color:black" class="card-title"><center>Rekap BRIS</center></h5>
-                <p class="card-text">Yang isinya adalah kumpulan rekap data BRIS</p>
+                <h5 style="color:black" class="card-title"><center>Rekap BRI-Syariah</center></h5>
+                <p class="card-text">Yang isinya adalah kumpulan rekap data BRI-Syariah</p>
                     <div class="card-deck">
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Perbulan</h5>
-                            <p class="card-text">Rekap data BRIS perbulan</p>
+                            <p class="card-text">Rekap data BRI-Syariah perbulan</p>
                             <ul>
                                 <li><a href="#">Januari</a></li>
                                 <li><a href="#">Februari</a></li>
@@ -55,11 +86,11 @@
                           </div>
                         </div>
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
-                            <p class="card-text">Rekap data BRIS pertahun</p>
-                            <a href="{{ route('bri-syariah.index') }}" class="btn btn-primary">Go</a>
+                            <p class="card-text">Rekap data BRI-Syariah pertahun</p>
+                            <a href="/admin/bri-syariah-rekap" class="btn btn-primary">Go</a>
                           </div>
                         </div>
                     </div>

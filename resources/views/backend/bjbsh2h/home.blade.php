@@ -16,24 +16,54 @@
 
 <div class="row">
         <div class="col-sm-6">
-            <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <a style="color:black" href="{{ route('bjbs-h2h.index') }}"><h5 class="card-title"><center>Index BJBS H2H</center></h5></a>
-                <p class="card-text">Yang isinya adalah kumpulan seluruh data BJBS H2H</p>
-                <a href="{{ route('bjbs-h2h.index') }}" class="btn btn-primary">Go</a>
+                <div class="card">
+                        <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 style="color:black" class="card-title"><center>Index BJBS H2H</center></h5>
+                    <p class="card-text">Yang isinya adalah kumpulan seluruh data BJBS H2H</p>
+                        <div class="card-deck">
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Perbulan</h5>
+                                <p class="card-text">Index BJBS H2H perbulan</p>
+                                <ul>
+                                    <li><a href="/admin/bjbs-h2h-januari">Januari</a></li>
+                                    <li><a href="/admin/bjbs-h2h-februari">Februari</a></li>
+                                    <li><a href="/admin/bjbs-h2h-maret">Maret</a></li>
+                                    <li><a href="/admin/bjbs-h2h-april">April</a></li>
+                                    <li><a href="/admin/bjbs-h2h-mei">Mei</a></li>
+                                    <li><a href="/admin/bjbs-h2h-juni">Juni</a></li>
+                                    <li><a href="/admin/bjbs-h2h-juli">Juli</a></li>
+                                    <li><a href="/admin/bjbs-h2h-agustus">Agustus</a></li>
+                                    <li><a href="/admin/bjbs-h2h-september">September</a></li>
+                                    <li><a href="/admin/bjbs-h2h-oktober">Oktober</a></li>
+                                    <li><a href="/admin/bjbs-h2h-nopember">November</a></li>
+                                    <li><a href="/admin/bjbs-h2h-desember">Desember</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Pertahun</h5>
+                                <p class="card-text">Index BJBS H2H pertahun</p>
+                                <a href="/admin/bjbs-h2h" class="btn btn-primary">Go</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
           </div>
-        </div>
         <div class="col-sm-6">
             <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BJBS H2H</center></h5>
                 <p class="card-text">Yang isinya adalah kumpulan rekap data BJBS H2H</p>
                     <div class="card-deck">
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Perbulan</h5>
                             <p class="card-text">Rekap data BJBS H2H perbulan</p>
@@ -55,11 +85,11 @@
                           </div>
                         </div>
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
                             <p class="card-text">Rekap data BJBS H2H pertahun</p>
-                            <a href="{{ route('bjbs-h2h.index') }}" class="btn btn-primary">Go</a>
+                            <a href="/admin/bjbs-h2h-rekap-tahun" class="btn btn-primary">Go</a>
                           </div>
                         </div>
                     </div>

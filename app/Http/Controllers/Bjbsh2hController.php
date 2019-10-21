@@ -124,4 +124,111 @@ class Bjbsh2hController extends Controller
         
         return redirect()->route('bjbs-h2h.index');
     }
+
+    public function rekaptahun(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::when($request->keyword, function ($query) use ($request) {
+            $query->where('nama', 'like', "%{$request->keyword}%")
+                ->orWhere('nama_kt', 'like', "%{$request->keyword}%");
+            })->latest()->get();
+            
+
+        return view('backend.bjbsh2h.rekap-tahun', compact('kode_transaksi_id'));
+    }
+
+    public function rekapjanuari(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $januari = Bjbsh2hData::where('tanggal_1', 'like', '%2019-01%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.januari', compact('kode_transaksi_id', 'januari'));
+    }
+
+    public function rekapfebruari(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $februari = Bjbsh2hData::where('tanggal_1', 'like', '%2019-02%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.februari', compact('kode_transaksi_id', 'februari'));
+    }
+
+    public function rekapmaret(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $maret = Bjbsh2hData::where('tanggal_1', 'like', '%2019-03%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.maret', compact('kode_transaksi_id', 'maret'));
+    }
+
+    public function rekapapril(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $april = Bjbsh2hData::where('tanggal_1', 'like', '%2019-04%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.april', compact('kode_transaksi_id', 'april'));
+    }
+
+    public function rekapmei(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $mei = Bjbsh2hData::where('tanggal_1', 'like', '%2019-05%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.mei', compact('kode_transaksi_id', 'mei'));
+    }
+
+    public function rekapjuni(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $juni = Bjbsh2hData::where('tanggal_1', 'like', '%2019-06%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.juni', compact('kode_transaksi_id', 'juni'));
+    }
+
+    public function rekapjuli(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $juli = Bjbsh2hData::where('tanggal_1', 'like', '%2019-07%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.juli', compact('kode_transaksi_id', 'juli'));
+    }
+
+    public function rekapagustus(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $agustus = Bjbsh2hData::where('tanggal_1', 'like', '%2019-08%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
+    }
+
+    public function rekapseptember(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $september = Bjbsh2hData::where('tanggal_1', 'like', '%2019-09%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.september', compact('kode_transaksi_id', 'september'));
+    }
+
+    public function rekapoktober(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $oktober = Bjbsh2hData::where('tanggal_1', 'like', '%2019-10%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
+    }
+
+    public function rekapnopember(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $nopember = Bjbsh2hData::where('tanggal_1', 'like', '%2019-11%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
+    }
+    
+    public function rekapdesember(Request $request)
+    {
+        $kode_transaksi_id = KodeTransaksi::all();
+        $desember = Bjbsh2hData::where('tanggal_1', 'like', '%2019-12%')->paginate(10);
+        
+        return view('backend.bjbsh2h.perbulan.desember', compact('kode_transaksi_id', 'desember'));
+    }
 }

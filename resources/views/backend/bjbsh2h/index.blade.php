@@ -30,18 +30,18 @@
             <table class="table table-bordered" id="table-1">
               <thead>
                 <tr>
-                  <th class="bg-info" class="text-center" style="color:black">
+                  <th class="text-center bg-white" style="color:black">
                     #
                   </th>
-                  <th class="bg-info" style="color:black">Tanggal(1)</th>
-                  <th class="bg-info" style="color:black">Kode</th>
-                  <th class="bg-info" style="color:black">Keterangan</th>
-                  <th class="bg-info" style="color:black">No. Bukti</th>
-                  <th class="bg-info" style="color:black">Mutasi Debit</th>
-                  <th class="bg-info" style="color:black">Mutasi Kredit</th>
-                  <th class="bg-info" style="color:black">Saldo</th>
-                  <th class="bg-info" style="color:black">Kode Transaksi</th>
-                  <th class="bg-info" style="color:black">Action</th>
+                  <th class="bg-white" style="color:black">Tanggal(1)</th>
+                  <th class="bg-white" style="color:black">Kode</th>
+                  <th class="bg-white" style="color:black">Keterangan</th>
+                  <th class="bg-white" style="color:black">No. Bukti</th>
+                  <th class="bg-white" style="color:black">Mutasi Debit</th>
+                  <th class="bg-white" style="color:black">Mutasi Kredit</th>
+                  <th class="bg-white" style="color:black">Saldo</th>
+                  <th class="bg-white" style="color:black">Kode Transaksi</th>
+                  <th class="bg-white" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>

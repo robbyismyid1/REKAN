@@ -16,24 +16,55 @@
 
 <div class="row">
         <div class="col-sm-6">
-            <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <a style="color:black" href="{{ route('btn.index') }}"><h5 class="card-title"><center>Index BTN</center></h5></a>
-                <p class="card-text">Yang isinya adalah kumpulan seluruh data BTN</p>
-                <a href="{{ route('btn.index') }}" class="btn btn-primary">Go</a>
+                <div class="card">
+                    <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 style="color:black" class="card-title"><center>Index BTN</center></h5>
+                    <p class="card-text">Yang isinya adalah kumpulan seluruh data BTN</p>
+                        <div class="card-deck">
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Perbulan</h5>
+                                <p class="card-text">Index BTN perbulan</p>
+                                <ul>
+                                    <li><a href="#">Januari</a></li>
+                                    <li><a href="#">Februari</a></li>
+                                    <li><a href="#">Maret</a></li>
+                                    <li><a href="#">April</a></li>
+                                    <li><a href="#">Mei</a></li>
+                                    <li><a href="#">Juni</a></li>
+                                    <li><a href="#">Juli</a></li>
+                                    <li><a href="#">Agustus</a></li>
+                                    <li><a href="#">September</a></li>
+                                    <li><a href="#">Oktober</a></li>
+                                    <li><a href="#">November</a></li>
+                                    <li><a href="#">Desember</a></li>
+    
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="card">
+                              
+                              <div class="card-body">
+                                <h5 style="color:black" class="card-title">Pertahun</h5>
+                                <p class="card-text">Index BTN pertahun</p>
+                                <a href="/admin/btn" class="btn btn-primary">Go</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
           </div>
-        </div>
         <div class="col-sm-6">
             <div class="card">
-                <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BTN</center></h5>
                 <p class="card-text">Yang isinya adalah kumpulan rekap data BTN</p>
                     <div class="card-deck">
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Perbulan</h5>
                             <p class="card-text">Rekap data BTN perbulan</p>
@@ -55,11 +86,11 @@
                           </div>
                         </div>
                         <div class="card">
-                          <img src="{{ asset('admin/assets/img/bg-yellow.png')}}" class="card-img-top" alt="...">
+                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
                             <p class="card-text">Rekap data BTN pertahun</p>
-                            <a href="{{ route('btn.index') }}" class="btn btn-primary">Go</a>
+                            <a href="/admin/btn-rekap" class="btn btn-primary">Go</a>
                           </div>
                         </div>
                     </div>

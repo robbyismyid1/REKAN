@@ -6,19 +6,18 @@
 @endsection
 @section('header') BJBS @endsection
 
-@section('desc') Kumpulan data BJBS @endsection
+@section('desc') Kumpulan data rekap BJBS @endsection
 @section('header-2') BJBS @endsection
 
 
 @section('content')
 
-{{-- <form class="form-inline" action="/admin/bjbs-rekap" method="GET">
+<form class="form-inline" action="/admin/bjbs-rekap-tahun" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/bjbs-rekap') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
   </div>
-</form> --}}
+</form>
 <br>
 
     <div class="card">        
@@ -26,13 +25,13 @@
             <table class="table table-bordered" id="table-1">
               <thead>
                 <tr>
-                  <th class="bg-info" class="text-center" style="color:black">
+                  <th class="text-center bg-white" style="color:black">
                     #
                   </th>
-                  <th class="bg-info" style="color:black">Kode</th>
-                  <th class="bg-info" style="color:black">Kode Transaksi</th>
-                  <th class="bg-info" style="color:black">Debit</th>
-                  <th class="bg-info" style="color:black">Kredit</th>
+                  <th class="bg-white" style="color:black">Kode ## Jumlah Data</th>
+                  <th class="bg-white" style="color:black">Nama Kode</th>
+                  <th class="bg-white" style="color:black">Debit</th>
+                  <th class="bg-white" style="color:black">Kredit</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,14 +48,14 @@
                 @endforeach
               </tbody>
             </table>
-              {{ $kode_transaksi_id->links() }}
+            {{-- {{ $kode_transaksi_id->links() }} --}}
           </div>
           <br>
         </div>
-            <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $kode_transaksi_id->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($kode_transaksi_id->total(), 0, '', '.') }} <br/></h5>
-            </div>
+        <div align="right">
+            {{-- <h5 style="color:black">Data Per Halaman : {{ $kode_transaksi_id->perPage() }} <br/></h5> --}}
+            {{-- <h5 style="color:black">Jumlah Data : {{ number_format($kode_transaksi_id->total(), 0, '', '.') }} <br/></h5> --}}
+        </div>
       </div>
 @endsection 
 
