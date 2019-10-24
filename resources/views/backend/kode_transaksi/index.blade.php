@@ -33,11 +33,12 @@
                     ID
                   </th>
                   <th class="bg-white" style="color:black">Kode Transaksi</th>
-                  <th class="bg-white" style="color:black">Nama</th>
+                  <th class="bg-white" style="color:black">Keterangan</th>
                   <th class="bg-white" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>
+                <tbody>
                 @foreach($kode_transaksi_id as $data)
                     <tr>
                         <td class="text-center">

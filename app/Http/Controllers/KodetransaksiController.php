@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\KodeTransaksi;
+use App\BjbsData;
 use Session;
 
 class KodetransaksiController extends Controller
@@ -92,10 +93,9 @@ class KodetransaksiController extends Controller
     public function destroy(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::findOrFail($request->id);
+        $bjbs_data = BjbsData::all();
         $old = $kode_transaksi_id->nama_kt;
         $kode_transaksi_id->delete();
-
-        toastr()->warning('Data berhasil dihapus!', "$old");
 
         return redirect()->route('kode-transaksi.index');
     }

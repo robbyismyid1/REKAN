@@ -39,13 +39,13 @@ class KodeTransaksi extends Model
     public static function boot()
 	{
 		parent::boot();
-		self::deleting(function ($kode_transaksi) {
+		self::deleting(function ($kode_transaksi_id) {
 			// mengecek apakah penulis masih punya buku
-			if ($kode_transaksi->bris_data->count() > 0) {
+			if ($kode_transaksi_id->bris_data->count() > 0) {
 				// menyiapkan pesan error
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BRI-Syariah';
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BRI-Syariah</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bris as $data) {
+				// foreach ($kode_transaksi_id->bris as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -56,10 +56,10 @@ class KodeTransaksi extends Model
 				// membatalkan proses penghapusan
 				return false;
 			}
-			else if ($kode_transaksi->bridata->count() > 0) {
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BRI';
+			else if ($kode_transaksi_id->bridata->count() > 0) {
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BRI</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bridata as $data) {
+				// foreach ($kode_transaksi_id->bridata as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -70,10 +70,10 @@ class KodeTransaksi extends Model
 				// membatalkan proses penghapusan
 				return false;
 			}
-			else if ($kode_transaksi->btndata->count() > 0) {
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BTN';
+			else if ($kode_transaksi_id->btndata->count() > 0) {
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BTN</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bridata as $data) {
+				// foreach ($kode_transaksi_id->bridata as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -84,10 +84,10 @@ class KodeTransaksi extends Model
 				// membatalkan proses penghapusan
 				return false;
 			}
-			else if ($kode_transaksi->bjbsh2hdata->count() > 0) {
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BJBS H2H';
+			else if ($kode_transaksi_id->bjbsh2hdata->count() > 0) {
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BJBS H2H</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bridata as $data) {
+				// foreach ($kode_transaksi_id->bridata as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -98,10 +98,10 @@ class KodeTransaksi extends Model
 				// membatalkan proses penghapusan
 				return false;
 			}
-			else if ($kode_transaksi->bjbsdata->count() > 0) {
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BJBS';
+			else if ($kode_transaksi_id->bjbsdata->count() > 0) {
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BJBS</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bridata as $data) {
+				// foreach ($kode_transaksi_id->bridata as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -112,10 +112,11 @@ class KodeTransaksi extends Model
 				// membatalkan proses penghapusan
 				return false;
 			}
-			else if ($kode_transaksi->bsmdata->count() > 0) {
-				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data BSM';
+
+			else if ($kode_transaksi_id->bsmdata->count() > 0) {
+				$html = 'Kode Transaksi tidak bisa dihapus karena masih memiliki data <b>BSM</b>';
 				// $html .= '<ul>';
-				// foreach ($kode_transaksi->bridata as $data) {
+				// foreach ($kode_transaksi_id->bridata as $data) {
 				// 	$html .= "<li>$data->remark</li>";
 				// }
 				// $html .= '</ul>';
@@ -125,6 +126,19 @@ class KodeTransaksi extends Model
 				]);
 				// membatalkan proses penghapusan
 				return false;
+			}
+
+			else {
+				$html = 'Kode Transaksi berhasil dihapus!';
+				// $html .= '<ul>';
+				// foreach ($kode_transaksi_id->bridata as $data) {
+				// 	$html .= "<li>$data->remark</li>";
+				// }
+				// $html .= '</ul>';
+				Session::flash("flash_notification", [
+					"level" => "success",
+					"message" => $html
+				]);
 			}
 		});
 	}

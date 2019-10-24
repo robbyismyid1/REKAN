@@ -11,29 +11,27 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('kode-transaksi.store') }}" method="post">
-
+                        @csrf
                         <div class="form-group">
-                          <label for="">Kode Transaksi</label>
-                          <input type="text" name="nama" id="nama" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="Kode Transaksi" aria-describedby="helpId">
-    
-                          @if ($errors->has('nama'))
+                            <label for="">Kode Transaksi</label>
+                            <input type="text" name="nama" id="nama" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+
+                            @if ($errors->has('nama'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('nama') }}</strong>
                                 </span>
                             @endif
                         </div>
-
                         <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" name="nama_kt" id="nama_kt" class="form-control{{ $errors->has('nama_kt') ? ' is-invalid' : '' }}" placeholder="Nama" aria-describedby="helpId">
+                            <label for="">Keterangan</label>
+                            <input type="text" name="nama_kt" id="nama_kt" class="form-control{{ $errors->has('nama_kt') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('nama_kt'))
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('nama_kt') }}</strong>
-                                  </span>
-                              @endif
-                          </div>
-                        
+                               <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('nama_kt') }}</strong>
+                              </span>
+                            @endif
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -58,33 +56,34 @@
                         @csrf
                         @method('DELETE')
                         <div class="form-group">
-                            <div class="form-group">
-                                <label for="">ID</label>
-                                <input disabled readonly type="text" name="id" id="id" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="Kode Transaksi" aria-describedby="helpId">
-          
-                                @if ($errors->has('id'))
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $errors->first('id') }}</strong>
-                                      </span>
-                                  @endif
-                            </div>
+                            <input type="hidden" name="id" id="id">
+                            <label for="">ID</label>
+                            <input disabled readonly type="text" name="id" id="id" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+                            
+                            @if ($errors->has('id'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('id') }}</strong>
+                                </span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Kode Transaksi</label>
                             <input disabled readonly type="text" name="nama" id="nama" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+        
                             @if ($errors->has('nama'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('nama') }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('nama') }}</strong>
+                                </span>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="">Nama</label>
+                            <label for="">Keterangan</label>
                             <input disabled readonly type="text" name="nama_kt" id="nama_kt" class="form-control{{ $errors->has('nama_kt') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+        
                             @if ($errors->has('nama_kt'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('nama_kt') }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('nama_kt') }}</strong>
+                                </span>
                             @endif
                         </div>
                         <small>Data akan dihapus permanen!</small>
@@ -112,38 +111,36 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
-                            <div class="form-group">
-                                <label for="">ID</label>
-                                <input disabled readonly type="text" name="id" id="id" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="Kode Transaksi" aria-describedby="helpId">
-          
-                                @if ($errors->has('id'))
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $errors->first('id') }}</strong>
-                                      </span>
-                                  @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
                             <input type="hidden" name="id" id="id">
-                            <label for="">Kode Transaksi</label>
-                            <input type="text" name="nama" id="nama" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="Kode Rekening" aria-describedby="helpId">
+                            <label for="">ID</label>
+                            <input disabled readonly type="text" name="id" id="id" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
-                            @if ($errors->has('nama'))
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('nama') }}</strong>
-                                  </span>
+                            @if ($errors->has('id'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('id') }}</strong>
+                                </span>
                             @endif
                         </div>
+
                         <div class="form-group">
-                            <input type="hidden" name="id" id="id">
-                            <label for="">Nama</label>
-                            <input type="text" name="nama_kt" id="nama_kt" class="form-control{{ $errors->has('nama_kt') ? ' is-invalid' : '' }}" placeholder="Kode Rekening" aria-describedby="helpId">
-      
+                            <label for="">Kode Transaksi</label>
+                            <input type="text" name="nama" id="nama" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+        
+                            @if ($errors->has('nama'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('nama') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="">Keterangan</label>
+                            <input type="text" name="nama_kt" id="nama_kt" class="form-control{{ $errors->has('nama_kt') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+        
                             @if ($errors->has('nama_kt'))
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('nama_kt') }}</strong>
-                                  </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('nama_kt') }}</strong>
+                                </span>
                             @endif
                         </div>
                 </div>

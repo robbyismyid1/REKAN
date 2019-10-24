@@ -29,24 +29,46 @@
                         <th class="text-center bg-white" style="color:black">
                         #
                         </th>
-                        <th class="bg-white" style="color:black">Kode x Jumlah Data</th>
-                        <th class="bg-white" style="color:black">Nama Kode</th>
-                        <th class="bg-white" style="color:black">Debit</th>
-                        <th class="bg-white" style="color:black">Kredit</th>
+                        <th class="text-center bg-white" style="color:black">Kode x Jumlah Data</th>
+                        <th class="text-center bg-white" style="color:black">Nama Kode</th>
+                        <th class="text-center bg-white" style="color:black">Debit</th>
+                        <th class="text-center bg-white" style="color:black">Kredit</th>
                     </tr>
                 </thead>
               <tbody>
-                @foreach($kode_transaksi_id as $data)
-                    <tr>
-                        <td class="text-center">
-                            {{ $loop->iteration }}
-                        </td>
-                        <td>{{ $data->nama }}</td>
-                        <td>{{ $data->nama_kt }}</td>
-                        <td>Rp.{{ number_format($data->debit, 0, '', '.') }}</td>
-                        <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
-                    </tr>
-                @endforeach
+                <tbody>
+                        @foreach($kode_transaksi_id as $data)
+                        <tr>
+                            <td class="text-center">
+                                {{ $loop->iteration }}
+                            </td>
+                            <td>{{ $data->nama }}</td>
+                            <td>{{ $data->nama_kt }}</td>
+                            
+                            <?php 
+                            $debit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.debit) AS jml_debit')
+                            ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
+                            ->where('kode_transaksi_id', $data->id)
+                            ->get();
+                            $kredit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.kredit) AS jml_kredit')
+                            ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
+                            ->where('kode_transaksi_id',$data->id)
+                            ->get();
+                            ?>
+                          
+                            @foreach($debit as $data2)
+                            <td class="text-right">Rp. {{ number_format($data2->jml_debit, 0, '', '.') }}</td>
+                            @endforeach
+                            @foreach($kredit as $data3)
+                            <td class="text-right">Rp. {{ number_format($data3->jml_kredit, 0, '', '.') }}</td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                    <th class="bg-white"></th>
+                    <th class="bg-white"></th>
+                    <th class="bg-white"></th>
+                    <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_debit, 0, '', '.') }}</th>
+                    <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_kredit, 0, '', '.') }}</th>
               </tbody>
             </table>
               {{-- {{ $kode_transaksi_id->links() }} --}}

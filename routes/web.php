@@ -20,7 +20,8 @@ Route::get('/home', function() {
     return redirect('/admin/bjbs-landing-page');
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::resource('/user', 'UsersController');
+    
+    Route::resource('/kode-transaksi', 'KodetransaksiController');
 
     Route::resource('/bri', 'BriController');
     Route::get('/bri-rekap-tahun', 'BriController@rekaptahun');
@@ -118,5 +119,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bsm-nopember', 'BsmController@rekapnopember');
     Route::get('/bsm-desember', 'BsmController@rekapdesember');
 
-    Route::resource('/kode-transaksi', 'KodetransaksiController');
+    Route::resource('/user', 'UsersController');
 });

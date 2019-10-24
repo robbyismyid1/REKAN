@@ -120,20 +120,28 @@ class Bjbsh2hController extends Controller
         $old = $bjbsh2h->remark;
         $bjbsh2h->delete();
         
-        toastr()->error('Data berhasil dihapus!', "$old");
+        // toastr()->error('Data berhasil dihapus!', "$old");
         
         return redirect()->route('bjbs-h2h.index');
     }
 
     public function rekaptahun(Request $request)
     {
-        $kode_transaksi_id = KodeTransaksi::all();
+        $kode_transaksi_id = KodeTransaksi::orderBy('id', 'asc')->get();
+        $sum_debit = Bjbsh2hData::sum('debit');
+        $sum_kredit = Bjbsh2hData::sum('kredit');
+
+        //or
+        
+        //$kode_transaksi_id = DB::table('kode_transaksis')->orderBy('id', 'asc')->get();
+        //$sum_debit = DB::table('bjbsh2h_data')->sum('debit');
+        //$sum_kredit = DB::table('bjbsh2h_data')->sum('kredit');
         $cari = $request->cari;
 
         if ($cari) {
             $kode_transaksi_id = KodeTransaksi::where('nama', 'LIKE', "%$cari%")->orWhere('nama_kt', 'LIKE', "%$cari%")->get();
         } 
-        return view('backend.bjbsh2h.rekap-tahun', compact('kode_transaksi_id'));
+        return view('backend.bjbsh2h.rekap-tahun', compact('kode_transaksi_id', 'sum_debit', 'sum_kredit'));
     }
 
     public function rekapjanuari(Request $request)

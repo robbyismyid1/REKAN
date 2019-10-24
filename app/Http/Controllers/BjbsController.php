@@ -119,7 +119,7 @@ class BjbsController extends Controller
         $old = $bjbs->remark;
         $bjbs->delete();
         
-        toastr()->error('Data berhasil dihapus!', "$old");
+        // toastr()->error('Data berhasil dihapus!', "$old");
         
         return redirect()->route('bjbs.index');
     }
@@ -127,13 +127,21 @@ class BjbsController extends Controller
     public function rekaptahun(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::orderBy('id', 'asc')->get();
-        $cari = $request->cari;
+        $sum_debit = BjbsData::sum('debit');
+        $sum_kredit = BjbsData::sum('kredit');
 
+        //or
+        
+        //$kode_transaksi_id = DB::table('kode_transaksis')->orderBy('id', 'asc')->get();
+        //$sum_debit = DB::table('bjbs_data')->sum('debit');
+        //$sum_kredit = DB::table('bjbs_data')->sum('kredit');
+
+        $cari = $request->cari;
         if ($cari) {
             $kode_transaksi_id = KodeTransaksi::where('nama', 'LIKE', "%$cari%")->orWhere('nama_kt', 'LIKE', "%$cari%")->get();
         }    
 
-        return view('backend.bjbs.rekap-tahun', compact('kode_transaksi_id'));
+        return view('backend.bjbs.rekap-tahun', compact('kode_transaksi_id', 'sum_debit', 'sum_kredit'));
     }
 
     public function rekapjanuari(Request $request)
