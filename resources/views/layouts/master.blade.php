@@ -45,7 +45,7 @@
                     </div>
                 </section>
             </div>
-
+            
             @include('backend.bjbs.modal')
             @include('backend.bjbsh2h.modal')
             @include('backend.bsm.modal')
@@ -70,6 +70,7 @@
     @yield('script')
 
     {{-- JS Modal Tag --}}
+
     <script>
         $('#edit-bris').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)

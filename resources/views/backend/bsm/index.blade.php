@@ -19,8 +19,7 @@
 <form class="form-inline" action="/admin/bsm" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/bsm') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
   </div>
 </form>
 <br>
@@ -31,18 +30,18 @@
             <table class="table table-bordered" id="table-1">
               <thead>
                 <tr>
-                  <th class="bg-info" class="text-center" style="color:black">
+                  <th class="text-center bg-white" style="color:black">
                     #
                   </th>
-                  <th class="bg-info" style="color:black">Tanggal Posting</th>
-                  <th class="bg-info" style="color:black">Tanggal Valuta</th>
-                  <th class="bg-info" style="color:black">Deskripsi</th>
-                  <th class="bg-info" style="color:black">No. Referensi</th>
-                  <th class="bg-info" style="color:black">Debit</th>
-                  <th class="bg-info" style="color:black">Kredit</th>
-                  <th class="bg-info" style="color:black">Saldo</th>
-                  <th class="bg-info" style="color:black">Kode Transaksi</th>
-                  <th class="bg-info" style="color:black">Action</th>
+                  <th class="bg-white" style="color:black">Tanggal Posting</th>
+                  <th class="bg-white" style="color:black">Tanggal Valuta</th>
+                  <th class="bg-white" style="color:black">Deskripsi</th>
+                  <th class="bg-white" style="color:black">No. Referensi</th>
+                  <th class="bg-white" style="color:black">Debit</th>
+                  <th class="bg-white" style="color:black">Kredit</th>
+                  <th class="bg-white" style="color:black">Saldo</th>
+                  <th class="bg-white" style="color:black">Kode Transaksi</th>
+                  <th class="bg-white" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>

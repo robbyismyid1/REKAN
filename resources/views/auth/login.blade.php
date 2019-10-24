@@ -1,68 +1,59 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="container-login100">
-    <div class="wrap-login100">
-        <div class="login100-pic js-tilt" data-tilt>
-            <img src="{{ asset('admin/assets/img/uin.png')}}" alt="IMG">
-        </div>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+                @csrf
+                <span class="login100-form-title p-b-26">
+                    Welcome
+                </span>
+                <span class="login100-form-title p-b-48">
+                    <i class="zmdi zmdi-font"></i>
+                </span>
 
-        <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
-            @csrf
-            <span class="login100-form-title">
-                Member Login
-            </span>
-
-            <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                <div class="col-md-6">
-                    <input id="email" style="width: 150%" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                    <input id="login" class="form-control input100 {{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}" type="text" name="login" placeholder="Username / E-mail">
+                    @if ($errors->has('username') || $errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
                         </span>
-                    @enderror
+                    @endif   
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                <div class="col-md-6">
-                    <input id="password" style="width: 150%" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="form-control input100 @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    
                 </div>
-            </div>
-            
-            <div class="container-login100-form-btn">
-                <button type="submit" class="login100-form-btn">
-                    Login
-                </button>
-            </div>
 
-            <div class="text-center p-t-12">
-                @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif
-            </div>
-
-            <div class="text-center p-t-136">
-                @if (Route::has('register'))
-                <a class="btn btn-link" href="{{ route('register') }}">
-                    {{ __('Create your Account ->') }}
-                </a>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                </div>
+                 @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
                 @endif
-            </div>
-        </form>
+
+                <div class="text-center p-t-115">
+                    
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

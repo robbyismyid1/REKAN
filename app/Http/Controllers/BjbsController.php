@@ -33,7 +33,7 @@ class BjbsController extends Controller
 
     public function index(Request $request)
     {
-        $kode_transaksi_id = KodeTransaksi::all(); 
+        $kode_transaksi_id = KodeTransaksi::all();
         $bjbs = BjbsData::when($request->keyword, function ($query) use ($request) {
             $query->where('no_urut', 'like', "%{$request->keyword}%")
                 ->orWhere('tanggal_1', 'like', "%{$request->keyword}%")
@@ -126,11 +126,12 @@ class BjbsController extends Controller
 
     public function rekaptahun(Request $request)
     {
-        $kode_transaksi_id = KodeTransaksi::when($request->keyword, function ($query) use ($request) {
-            $query->where('nama', 'like', "%{$request->keyword}%")
-                ->orWhere('nama_kt', 'like', "%{$request->keyword}%");
-            })->latest()->get();
-            
+        $kode_transaksi_id = KodeTransaksi::orderBy('id', 'asc')->get();
+        $cari = $request->cari;
+
+        if ($cari) {
+            $kode_transaksi_id = KodeTransaksi::where('nama', 'LIKE', "%$cari%")->orWhere('nama_kt', 'LIKE', "%$cari%")->get();
+        }    
 
         return view('backend.bjbs.rekap-tahun', compact('kode_transaksi_id'));
     }

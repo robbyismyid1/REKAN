@@ -16,7 +16,7 @@
 
 <div class="row">
         <div class="col-sm-6">
-                <div class="card">
+                <div class="card bg-light">
                         <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 style="color:black" class="card-title"><center>Index BJBS H2H</center></h5>
@@ -38,7 +38,7 @@
                                     <li><a href="/admin/bjbs-h2h-agustus">Agustus</a></li>
                                     <li><a href="/admin/bjbs-h2h-september">September</a></li>
                                     <li><a href="/admin/bjbs-h2h-oktober">Oktober</a></li>
-                                    <li><a href="/admin/bjbs-h2h-nopember">November</a></li>
+                                    <li><a href="/admin/bjbs-h2h-nopember">Nopember</a></li>
                                     <li><a href="/admin/bjbs-h2h-desember">Desember</a></li>
                                 </ul>
                               </div>
@@ -56,7 +56,7 @@
                 </div>
           </div>
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card bg-light">
                 <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BJBS H2H</center></h5>
@@ -78,14 +78,13 @@
                                 <li><a href="#">Agustus</a></li>
                                 <li><a href="#">September</a></li>
                                 <li><a href="#">Oktober</a></li>
-                                <li><a href="#">November</a></li>
+                                <li><a href="#">Nopember</a></li>
                                 <li><a href="#">Desember</a></li>
 
                             </ul>
                           </div>
                         </div>
                         <div class="card">
-                          
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
                             <p class="card-text">Rekap data BJBS H2H pertahun</p>

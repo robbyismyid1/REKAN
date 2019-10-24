@@ -16,14 +16,13 @@
 
 <div class="row">
         <div class="col-sm-6">
-                <div class="card">
+                <div class="card bg-light">
                     <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 style="color:black" class="card-title"><center>Index BJBS</center></h5>
                     <p class="card-text">Yang isinya adalah kumpulan seluruh data BJBS</p>
                         <div class="card-deck">
                             <div class="card">
-                              
                               <div class="card-body">
                                 <h5 style="color:black" class="card-title">Perbulan</h5>
                                 <p class="card-text">Index BJBS perbulan</p>
@@ -38,7 +37,7 @@
                                     <li><a href="/admin/bjbs-agustus">Agustus</a></li>
                                     <li><a href="/admin/bjbs-september">September</a></li>
                                     <li><a href="/admin/bjbs-oktober">Oktober</a></li>
-                                    <li><a href="/admin/bjbs-nopember">November</a></li>
+                                    <li><a href="/admin/bjbs-nopember">Nopember</a></li>
                                     <li><a href="/admin/bjbs-desember">Desember</a></li>
                                 </ul>
                               </div>
@@ -56,7 +55,7 @@
                 </div>
           </div>
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card bg-light">
                 <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BJBS</center></h5>
@@ -78,7 +77,7 @@
                                 <li><a href="#">Agustus</a></li>
                                 <li><a href="#">September</a></li>
                                 <li><a href="#">Oktober</a></li>
-                                <li><a href="#">November</a></li>
+                                <li><a href="#">Nopember</a></li>
                                 <li><a href="#">Desember</a></li>
                             </ul>
                           </div>

@@ -16,7 +16,7 @@
 
 <div class="row">
         <div class="col-sm-6">
-                <div class="card">
+                <div class="card bg-light">
                     <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 style="color:black" class="card-title"><center>Index BTN</center></h5>
@@ -28,19 +28,18 @@
                                 <h5 style="color:black" class="card-title">Perbulan</h5>
                                 <p class="card-text">Index BTN perbulan</p>
                                 <ul>
-                                    <li><a href="#">Januari</a></li>
-                                    <li><a href="#">Februari</a></li>
-                                    <li><a href="#">Maret</a></li>
-                                    <li><a href="#">April</a></li>
-                                    <li><a href="#">Mei</a></li>
-                                    <li><a href="#">Juni</a></li>
-                                    <li><a href="#">Juli</a></li>
-                                    <li><a href="#">Agustus</a></li>
-                                    <li><a href="#">September</a></li>
-                                    <li><a href="#">Oktober</a></li>
-                                    <li><a href="#">November</a></li>
-                                    <li><a href="#">Desember</a></li>
-    
+                                  <li><a href="/admin/btn-januari">Januari</a></li>
+                                  <li><a href="/admin/btn-februari">Februari</a></li>
+                                  <li><a href="/admin/btn-maret">Maret</a></li>
+                                  <li><a href="/admin/btn-april">April</a></li>
+                                  <li><a href="/admin/btn-mei">Mei</a></li>
+                                  <li><a href="/admin/btn-juni">Juni</a></li>
+                                  <li><a href="/admin/btn-juli">Juli</a></li>
+                                  <li><a href="/admin/btn-agustus">Agustus</a></li>
+                                  <li><a href="/admin/btn-september">September</a></li>
+                                  <li><a href="/admin/btn-oktober">Oktober</a></li>
+                                  <li><a href="/admin/btn-nopember">Nopember</a></li>
+                                  <li><a href="/admin/btn-desember">Desember</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -57,7 +56,7 @@
                 </div>
           </div>
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card bg-light">
                 <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BTN</center></h5>
@@ -90,7 +89,7 @@
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
                             <p class="card-text">Rekap data BTN pertahun</p>
-                            <a href="/admin/btn-rekap" class="btn btn-primary">Go</a>
+                            <a href="/admin/btn-rekap-tahun" class="btn btn-primary">Go</a>
                           </div>
                         </div>
                     </div>

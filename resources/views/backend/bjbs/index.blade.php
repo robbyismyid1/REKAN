@@ -80,7 +80,7 @@
                             data-debit="{{ $data->debit }}" 
                             data-kredit="{{ $data->kredit }}" 
                             data-saldo="{{ $data->saldo }}" 
-                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            data-kode_transaksi_id="{{ $data->kode_transaksi_id }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
                     </tr>

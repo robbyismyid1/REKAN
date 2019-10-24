@@ -16,7 +16,7 @@
 
 <div class="row">
         <div class="col-sm-6">
-                <div class="card">
+                <div class="card bg-light">
                     <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 style="color:black" class="card-title"><center>Index BRI</center></h5>
@@ -28,19 +28,18 @@
                                 <h5 style="color:black" class="card-title">Perbulan</h5>
                                 <p class="card-text">Index BRI perbulan</p>
                                 <ul>
-                                    <li><a href="#">Januari</a></li>
-                                    <li><a href="#">Februari</a></li>
-                                    <li><a href="#">Maret</a></li>
-                                    <li><a href="#">April</a></li>
-                                    <li><a href="#">Mei</a></li>
-                                    <li><a href="#">Juni</a></li>
-                                    <li><a href="#">Juli</a></li>
-                                    <li><a href="#">Agustus</a></li>
-                                    <li><a href="#">September</a></li>
-                                    <li><a href="#">Oktober</a></li>
-                                    <li><a href="#">November</a></li>
-                                    <li><a href="#">Desember</a></li>
-    
+                                  <li><a href="/admin/bri-januari">Januari</a></li>
+                                  <li><a href="/admin/bri-februari">Februari</a></li>
+                                  <li><a href="/admin/bri-maret">Maret</a></li>
+                                  <li><a href="/admin/bri-april">April</a></li>
+                                  <li><a href="/admin/bri-mei">Mei</a></li>
+                                  <li><a href="/admin/bri-juni">Juni</a></li>
+                                  <li><a href="/admin/bri-juli">Juli</a></li>
+                                  <li><a href="/admin/bri-agustus">Agustus</a></li>
+                                  <li><a href="/admin/bri-september">September</a></li>
+                                  <li><a href="/admin/bri-oktober">Oktober</a></li>
+                                  <li><a href="/admin/bri-nopember">Nopember</a></li>
+                                  <li><a href="/admin/bri-desember">Desember</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -57,7 +56,7 @@
                 </div>
           </div>
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card bg-light">
                 <img src="{{ asset('admin/assets/img/bg-green.jpg')}}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 style="color:black" class="card-title"><center>Rekap BRI</center></h5>
@@ -79,7 +78,7 @@
                                 <li><a href="#">Agustus</a></li>
                                 <li><a href="#">September</a></li>
                                 <li><a href="#">Oktober</a></li>
-                                <li><a href="#">November</a></li>
+                                <li><a href="#">Nopember</a></li>
                                 <li><a href="#">Desember</a></li>
 
                             </ul>
@@ -90,7 +89,7 @@
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>
                             <p class="card-text">Rekap data BRI pertahun</p>
-                            <a href="/admin/bri-rekap" class="btn btn-primary">Go</a>
+                            <a href="/admin/bri-rekap-tahun" class="btn btn-primary">Go</a>
                           </div>
                         </div>
                     </div>

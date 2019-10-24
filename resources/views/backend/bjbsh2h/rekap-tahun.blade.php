@@ -12,10 +12,11 @@
 
 @section('content')
 
-<form class="form-inline" action="/admin/bjbs-h2h-rekap" method="GET">
+<form class="form-inline" action="/admin/bjbs-h2h-rekap-tahun" method="GET">
   <div class="form-group">
-    <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
+    <input class="form-control" type="text" name="cari" placeholder="Cari data ..">&nbsp;
     <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
+    <a style="color:black" href="/admin/bjbs-h2h-rekap-tahun" class="btn bg-warning" role="button" aria-pressed="true"><li class="fas fa-arrow-left"></li></li></a>
   </div>
 </form>
 <br>
@@ -28,7 +29,7 @@
                         <th class="text-center bg-white" style="color:black">
                         #
                         </th>
-                        <th class="bg-white" style="color:black">Kode ## Jumlah Data</th>
+                        <th class="bg-white" style="color:black">Kode x Jumlah Data</th>
                         <th class="bg-white" style="color:black">Nama Kode</th>
                         <th class="bg-white" style="color:black">Debit</th>
                         <th class="bg-white" style="color:black">Kredit</th>

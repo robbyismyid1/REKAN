@@ -19,8 +19,7 @@
 <form class="form-inline" action="/admin/kode-transaksi" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/kode-transaksi') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
   </div>
 </form>
 <br>
@@ -30,12 +29,12 @@
             <table class="table table-bordered" id="table-1">
               <thead>
                 <tr>
-                  <th class="text-center bg-info" class="text-center" style="color:black">
+                  <th class="text-center bg-white" class="text-center" style="color:black">
                     ID
                   </th>
-                  <th class="bg-info" style="color:black">Kode Transaksi</th>
-                  <th class="bg-info" style="color:black">Nama</th>
-                  <th class="bg-info" style="color:black">Action</th>
+                  <th class="bg-white" style="color:black">Kode Transaksi</th>
+                  <th class="bg-white" style="color:black">Nama</th>
+                  <th class="bg-white" style="color:black">Action</th>
                 </tr>
               </thead>
               <tbody>

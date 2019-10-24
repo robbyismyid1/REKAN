@@ -322,7 +322,7 @@
                         <div class="form-group">
                             <label for="">Kode Transaksi</label>
                             <select class="form-control selectric" name="kode_transaksi_id" required>
-                                <option value="">- Pilih -</option>
+                                <option value="">- Pick -</option>
                               @foreach($kode_transaksi_id as $data)
                                   <option value="{{ $data->id }}">{{ $data->nama }}</option>
                               @endforeach

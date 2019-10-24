@@ -19,8 +19,7 @@
 <form class="form-inline" action="/admin/bjbs-h2h" method="GET">
   <div class="form-group">
     <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/bjbs-h2h') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
   </div>
 </form>
 <br>

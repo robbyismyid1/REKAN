@@ -45,7 +45,8 @@
                     </div>
                 </section>
             </div>
-
+            
+            @include('backend.user.modal')
 
             {{-- Footer --}}
             <footer class="main-footer">
@@ -63,7 +64,49 @@
     @yield('script')
 
     {{-- JS Modal Tag --}}
+    <script>
+        $('#edit-user').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var name = button.data('name')
+            var username = button.data('username')
+            var email = button.data('email')
+            var password = button.data('password')
+            var created_at = button.data('created_at')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
     
+            modal.find('#id').val(id)
+            modal.find('#name').val(name)
+            modal.find('#username').val(username)
+            modal.find('#email').val(email)
+            modal.find('#password').val(password)
+            modal.find('#created_at').val(created_at)
+            })
+    </script>
+        
+    <script>
+        $('#delete-user').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var name = button.data('name')
+            var username = button.data('username')
+            var email = button.data('email')
+            var passwrod = button.data('passwrod')
+            var created_at = button.data('created_at')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+    
+            modal.find('#id').val(id)
+            modal.find('#name').val(name)
+            modal.find('#username').val(username)
+            modal.find('#email').val(email)
+            modal.find('#password').val(password)
+            modal.find('#created_at').val(created_at)
+            })
+    </script>
 
     {{-- some hidden comment --}}
 </body>
