@@ -7,10 +7,10 @@
             <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                 @csrf
                 <span class="login100-form-title p-b-26">
-                    Welcome
+                    <img style="width: 75%; height: 75%;" src="../admin/assets/img/uinlogo.png" alt=""> 
                 </span>
                 <span class="login100-form-title p-b-48">
-                    <i class="zmdi zmdi-font"></i>
+                    Selamat Datang
                 </span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
@@ -45,7 +45,7 @@
                 </div>
                  @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
+                        {{ __('Lupa Kata Sandi?') }}
                     </a>
                 @endif
 

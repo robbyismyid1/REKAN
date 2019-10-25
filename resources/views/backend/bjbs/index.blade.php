@@ -8,6 +8,8 @@
 @section('button-add')
     <div class="section-header-button">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-bjbs">Tambah Data</button>
+        &nbsp;
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#import-ex">Import / Export</button>
     </div>
 @endsection
 @section('desc') Kumpulan data BJBS @endsection

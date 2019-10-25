@@ -62,28 +62,7 @@
                 <h5 style="color:black" class="card-title"><center>Rekap BJBS H2H</center></h5>
                 <p class="card-text">Yang isinya adalah kumpulan rekap data BJBS H2H</p>
                     <div class="card-deck">
-                        <div class="card">
-                          
-                          <div class="card-body">
-                            <h5 style="color:black" class="card-title">Perbulan</h5>
-                            <p class="card-text">Rekap data BJBS H2H perbulan</p>
-                            <ul>
-                                <li><a href="#">Januari</a></li>
-                                <li><a href="#">Februari</a></li>
-                                <li><a href="#">Maret</a></li>
-                                <li><a href="#">April</a></li>
-                                <li><a href="#">Mei</a></li>
-                                <li><a href="#">Juni</a></li>
-                                <li><a href="#">Juli</a></li>
-                                <li><a href="#">Agustus</a></li>
-                                <li><a href="#">September</a></li>
-                                <li><a href="#">Oktober</a></li>
-                                <li><a href="#">Nopember</a></li>
-                                <li><a href="#">Desember</a></li>
-
-                            </ul>
-                          </div>
-                        </div>
+                        
                         <div class="card">
                           <div class="card-body">
                             <h5 style="color:black" class="card-title">Pertahun</h5>

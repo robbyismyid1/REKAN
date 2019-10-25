@@ -6,17 +6,17 @@
 @endsection
 @section('header') BJBS @endsection
 
-@section('desc') Kumpulan data rekap BJBS bulan Januari @endsection
+@section('desc') Rekap BJBS bulan Januari @endsection
 @section('header-2') BJBS @endsection
 
 
 @section('content')
 
-<form class="form-inline" action="/admin/bjbs-rekap" method="GET">
+<form class="form-inline" action="/admin/bjbs-rekap-januari" method="GET">
   <div class="form-group">
-    <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-warning"><li class="fa fa-search"></li></button>&nbsp;
-    <a class="btn bg-success" href="{{ url('admin/bjbs-rekap') }}"><li class="fa fa-spinner fa-spin"></li></a>
+    <input class="form-control" type="text" name="cari" placeholder="Cari data ..">&nbsp;
+    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
+    <a style="color:black" href="/admin/bjbs-rekap-januari" class="btn bg-warning" role="button" aria-pressed="true"><li class="fas fa-arrow-left"></li></li></a>
   </div>
 </form>
 <br>
@@ -26,37 +26,59 @@
             <table class="table table-bordered" id="table-1">
               <thead>
                 <tr>
-                  <th class="bg-info" class="text-center" style="color:black">
+                  <th class="text-center bg-white" style="color:black">
                     #
                   </th>
-                  <th class="bg-info" style="color:black">Kode || Jumlah Data</th>
-                  <th class="bg-info" style="color:black">Nama Kode</th>
-                  <th class="bg-info" style="color:black">Debit</th>
-                  <th class="bg-info" style="color:black">Kredit</th>
+                  <th class="text-center bg-white" style="color:black">Kode x Jumlah Data</th>
+                  <th class="text-center bg-white" style="color:black">Nama Kode</th>
+                  <th class="text-center bg-white" style="color:black">Debit</th>
+                  <th class="text-center bg-white" style="color:black">Kredit</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($januari as $data)
+              <tbody>
+                @foreach($kode_transaksi_id as $data)
                     <tr>
                         <td class="text-center">
                             {{ $loop->iteration }}
                         </td>
-                        <td>{{ $data->tanggal_1 }}</td>
-                        <td>{{ $data->remark }}</td>
-                        <td>Rp.{{ number_format($data->debit, 0, '', '.') }}</td>
-                        <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->nama_kt }}</td>
+                        
+                        <?php 
+                        $debit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.debit) AS jml_debit')
+                        ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
+                        ->where('kode_transaksi_id', '=', $data->id)
+                        ->get();
+                        $kredit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.kredit) AS jml_kredit')
+                        ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
+                        ->where('kode_transaksi_id', '=', $data->id)
+                        ->get();
+                        ?>
+                      
+                        @foreach($debit as $data2)
+                        <td class="text-right">Rp. {{ number_format($data2->jml_debit, 0, '', '.') }}</td>
+                        @endforeach
+                        @foreach($kredit as $data3)
+                        <td class="text-right">Rp. {{ number_format($data3->jml_kredit, 0, '', '.') }}</td>
+                        @endforeach
                     </tr>
                 @endforeach
+                <th class="bg-white"></th>
+                <th class="bg-white"></th>
+                <th class="bg-white"></th>
+                <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_debit, 0, '', '.') }}</th>
+                <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_kredit, 0, '', '.') }}</th>
               </tbody>
             </table>
-              {{ $januari->links() }}
+            {{-- {{ $kode_transaksi_id->links() }} --}}
           </div>
           <br>
         </div>
-            <div align="right">
-                <h5 style="color:black">Data Per Halaman : {{ $januari->perPage() }} <br/></h5>
-                <h5 style="color:black">Jumlah Data : {{ number_format($januari->total(), 0, '', '.') }} <br/></h5>
-            </div>
+        <div align="right">
+            {{-- <h5 style="color:black">Data Per Halaman : {{ $kode_transaksi_id->perPage() }} <br/></h5> --}}
+            {{-- <h5 style="color:black">Jumlah Data : {{ number_format($kode_transaksi_id->total(), 0, '', '.') }} <br/></h5> --}}
+        </div>
       </div>
 @endsection 
 

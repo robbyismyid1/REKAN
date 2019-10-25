@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
+	<title>REKAN SALAM | Masuk</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../login_v2/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="../admin/assets/img/uinlogo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../login_v2/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->

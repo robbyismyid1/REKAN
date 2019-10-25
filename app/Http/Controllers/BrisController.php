@@ -130,6 +130,7 @@ class BrisController extends Controller
         $kode_transaksi_id = KodeTransaksi::orderBy('id', 'asc')->get();
         $sum_debit = BrisData::sum('debit');
         $sum_kredit = BrisData::sum('kredit');
+        $count = BrisData::count('kode_transaksi_id');
 
         //or
         
@@ -142,10 +143,10 @@ class BrisController extends Controller
             $kode_transaksi_id = KodeTransaksi::where('nama', 'LIKE', "%$cari%")->orWhere('nama_kt', 'LIKE', "%$cari%")->get();
         } 
         
-        return view('backend.bris.rekap-tahun', compact('kode_transaksi_id', 'sum_debit', 'sum_kredit'));
+        return view('backend.bris.rekap-tahun', compact('kode_transaksi_id', 'sum_debit', 'sum_kredit', 'count'));
     }
 
-    public function rekapjanuari(Request $request)
+    public function januari(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $januari = BrisData::where('tanggal_1', 'like', '%2019-01%')->paginate(10);
@@ -153,7 +154,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.januari', compact('kode_transaksi_id', 'januari'));
     }
 
-    public function rekapfebruari(Request $request)
+    public function februari(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $februari = BrisData::where('tanggal_1', 'like', '%2019-02%')->paginate(10);
@@ -161,7 +162,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.februari', compact('kode_transaksi_id', 'februari'));
     }
 
-    public function rekapmaret(Request $request)
+    public function maret(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $maret = BrisData::where('tanggal_1', 'like', '%2019-03%')->paginate(10);
@@ -169,7 +170,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.maret', compact('kode_transaksi_id', 'maret'));
     }
 
-    public function rekapapril(Request $request)
+    public function april(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $april = BrisData::where('tanggal_1', 'like', '%2019-04%')->paginate(10);
@@ -177,7 +178,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.april', compact('kode_transaksi_id', 'april'));
     }
 
-    public function rekapmei(Request $request)
+    public function mei(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $mei = BrisData::where('tanggal_1', 'like', '%2019-05%')->paginate(10);
@@ -185,7 +186,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.mei', compact('kode_transaksi_id', 'mei'));
     }
 
-    public function rekapjuni(Request $request)
+    public function juni(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juni = BrisData::where('tanggal_1', 'like', '%2019-06%')->paginate(10);
@@ -193,7 +194,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.juni', compact('kode_transaksi_id', 'juni'));
     }
 
-    public function rekapjuli(Request $request)
+    public function juli(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juli = BrisData::where('tanggal_1', 'like', '%2019-07%')->paginate(10);
@@ -201,7 +202,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.juli', compact('kode_transaksi_id', 'juli'));
     }
 
-    public function rekapagustus(Request $request)
+    public function agustus(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $agustus = BrisData::where('tanggal_1', 'like', '%2019-08%')->paginate(10);
@@ -209,7 +210,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
     }
 
-    public function rekapseptember(Request $request)
+    public function september(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $september = BrisData::where('tanggal_1', 'like', '%2019-09%')->paginate(10);
@@ -217,7 +218,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.september', compact('kode_transaksi_id', 'september'));
     }
 
-    public function rekapoktober(Request $request)
+    public function oktober(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $oktober = BrisData::where('tanggal_1', 'like', '%2019-10%')->paginate(10);
@@ -225,7 +226,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
     }
 
-    public function rekapnopember(Request $request)
+    public function nopember(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $nopember = BrisData::where('tanggal_1', 'like', '%2019-11%')->paginate(10);
@@ -233,7 +234,7 @@ class BrisController extends Controller
         return view('backend.bris.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
     }
     
-    public function rekapdesember(Request $request)
+    public function desember(Request $request)
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $desember = BrisData::where('tanggal_1', 'like', '%2019-12%')->paginate(10);

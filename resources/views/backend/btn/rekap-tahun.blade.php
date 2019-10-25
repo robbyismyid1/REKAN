@@ -21,56 +21,67 @@
 </form>
 <br>
 
-    <div class="card">        
-          <div class="table-responsive">
-            <table class="table table-bordered" id="table-1">
-                <thead>
-                    <tr>
-                        <th class="text-center bg-white" style="color:black">
-                        #
-                        </th>
-                        <th class="text-center bg-white" style="color:black">Kode x Jumlah Data</th>
-                        <th class="text-center bg-white" style="color:black">Nama Kode</th>
-                        <th class="text-center bg-white" style="color:black">Debit</th>
-                        <th class="text-center bg-white" style="color:black">Kredit</th>
-                    </tr>
-                </thead>
-              <tbody>
-                <tbody>
-                        @foreach($kode_transaksi_id as $data)
-                        <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td>{{ $data->nama }}</td>
-                            <td>{{ $data->nama_kt }}</td>
-                            
-                            <?php 
-                            $debit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.debit) AS jml_debit')
-                            ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
-                            ->where('kode_transaksi_id', $data->id)
-                            ->get();
-                            $kredit = DB::table('kode_transaksis')->selectRaw('sum(bjbs_data.kredit) AS jml_kredit')
-                            ->join('bjbs_data','bjbs_data.kode_transaksi_id','=','kode_transaksis.id')
-                            ->where('kode_transaksi_id',$data->id)
-                            ->get();
-                            ?>
-                          
-                            @foreach($debit as $data2)
-                            <td class="text-right">Rp. {{ number_format($data2->jml_debit, 0, '', '.') }}</td>
-                            @endforeach
-                            @foreach($kredit as $data3)
-                            <td class="text-right">Rp. {{ number_format($data3->jml_kredit, 0, '', '.') }}</td>
-                            @endforeach
-                        </tr>
-                    @endforeach
-                    <th class="bg-white"></th>
-                    <th class="bg-white"></th>
-                    <th class="bg-white"></th>
-                    <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_debit, 0, '', '.') }}</th>
-                    <th class="text-right bg-white" style="color:red">Rp. {{ number_format($sum_kredit, 0, '', '.') }}</th>
-              </tbody>
-            </table>
+<div class="card">        
+        <div class="table-responsive">
+          <table class="table table-bordered" id="table-1">
+            <thead>
+              <tr>
+                <th class="text-center bg-white" style="color:black">
+                  #
+                </th>
+                <th class="text-center bg-white" style="color:black">Kode</th>
+                <th class="text-center bg-white" style="color:black">Nama Kode</th>
+                <th class="text-center bg-white" style="color:black">Banyak Transaksi</th>
+                <th class="text-center bg-white" style="color:black">Debit</th>
+                <th class="text-center bg-white" style="color:black">Kredit</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tbody>
+              @foreach($kode_transaksi_id as $data)
+                  <tr>
+                      <td class="text-center">
+                          {{ $loop->iteration }}
+                      </td>
+                      <td>{{ $data->nama }}</td>
+                      <td>{{ $data->nama_kt }}</td>
+                      
+                      <?php 
+                      $hitung = DB::table('kode_transaksis')->selectRaw('count(btn_data.kode_transaksi_id) AS jml_count')
+                      ->join('btn_data','btn_data.kode_transaksi_id','=','kode_transaksis.id')
+                      ->where('kode_transaksi_id', '=', $data->id)
+                      ->get();
+
+                      $debit = DB::table('kode_transaksis')->selectRaw('sum(btn_data.debit) AS jml_debit')
+                      ->join('btn_data','btn_data.kode_transaksi_id','=','kode_transaksis.id')
+                      ->where('kode_transaksi_id', '=', $data->id)
+                      ->get();
+
+                      $kredit = DB::table('kode_transaksis')->selectRaw('sum(btn_data.kredit) AS jml_kredit')
+                      ->join('btn_data','btn_data.kode_transaksi_id','=','kode_transaksis.id')
+                      ->where('kode_transaksi_id', '=', $data->id)
+                      ->get();
+                      ?>
+
+                      @foreach ($hitung as $jml)
+                        <td class="text-right"> {{ $jml->jml_count }}</td>
+                      @endforeach
+                      @foreach($debit as $data2)
+                        <td class="text-right">Rp. {{ number_format($data2->jml_debit, 0, '', '.') }}</td>
+                      @endforeach
+                      @foreach($kredit as $data3)
+                        <td class="text-right">Rp. {{ number_format($data3->jml_kredit, 0, '', '.') }}</td>
+                      @endforeach
+                  </tr>
+              @endforeach
+              <th class="bg-white"></th>
+              <th class="bg-white">Total keseluruhan : </th>
+              <th class="bg-white"></th>
+              <th class="text-right bg-white" style="color:red">[ {{ $count }} ]</th>
+              <th class="text-right bg-white" style="color:red">[ Rp. {{ number_format($sum_debit, 0, '', '.') }} ]</th>
+              <th class="text-right bg-white" style="color:red">[ Rp. {{ number_format($sum_kredit, 0, '', '.') }} ]</th>
+            </tbody>
+          </table>
               {{-- {{ $kode_transaksi_id->links() }} --}}
           </div>
           <br>
