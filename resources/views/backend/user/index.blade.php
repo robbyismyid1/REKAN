@@ -39,6 +39,7 @@
                   <th class="bg-white" style="color:black">Action</th>
                 </tr>
               </thead>
+              <tbody></tbody>
               <tbody>
                 @foreach($user as $data)
                     <tr>

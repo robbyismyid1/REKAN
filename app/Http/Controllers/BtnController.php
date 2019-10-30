@@ -121,7 +121,7 @@ class BtnController extends Controller
         $old = $btn->remark;
         $btn->delete();
         
-        // toastr()->error('Data berhasil dihapus!', "$old");
+        toastr()->error('Data berhasil dihapus!', "$old");
         
         return redirect()->route('btn.index');
     }
@@ -150,6 +150,10 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $januari = BtnData::where('tanggal_1', 'like', '%2019-01%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $januari = BtnData::where('tanggal_1', 'LIKE', "%2019-01-$cari%")->paginate(10);
+        }  
         
         return view('backend.btn.perbulan.januari', compact('kode_transaksi_id', 'januari'));
     }
@@ -158,7 +162,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $februari = BtnData::where('tanggal_1', 'like', '%2019-02%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $februari = BtnData::where('tanggal_1', 'LIKE', "%2019-02-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.februari', compact('kode_transaksi_id', 'februari'));
     }
 
@@ -166,7 +174,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $maret = BtnData::where('tanggal_1', 'like', '%2019-03%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $maret = BtnData::where('tanggal_1', 'LIKE', "%2019-03-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.maret', compact('kode_transaksi_id', 'maret'));
     }
 
@@ -174,7 +186,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $april = BtnData::where('tanggal_1', 'like', '%2019-04%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $april = BtnData::where('tanggal_1', 'LIKE', "%2019-04-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.april', compact('kode_transaksi_id', 'april'));
     }
 
@@ -182,7 +198,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $mei = BtnData::where('tanggal_1', 'like', '%2019-05%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $mei = BtnData::where('tanggal_1', 'LIKE', "%2019-05-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.mei', compact('kode_transaksi_id', 'mei'));
     }
 
@@ -190,7 +210,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juni = BtnData::where('tanggal_1', 'like', '%2019-06%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juni = BtnData::where('tanggal_1', 'LIKE', "%2019-06-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.juni', compact('kode_transaksi_id', 'juni'));
     }
 
@@ -198,7 +222,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juli = BtnData::where('tanggal_1', 'like', '%2019-07%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juli = BtnData::where('tanggal_1', 'LIKE', "%2019-07-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.juli', compact('kode_transaksi_id', 'juli'));
     }
 
@@ -206,7 +234,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $agustus = BtnData::where('tanggal_1', 'like', '%2019-08%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $agustus = BtnData::where('tanggal_1', 'LIKE', "%2019-08-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
     }
 
@@ -214,7 +246,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $september = BtnData::where('tanggal_1', 'like', '%2019-09%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $september = BtnData::where('tanggal_1', 'LIKE', "%2019-09-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.september', compact('kode_transaksi_id', 'september'));
     }
 
@@ -222,6 +258,10 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $oktober = BtnData::where('tanggal_1', 'like', '%2019-10%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $oktober = BtnData::where('tanggal_1', 'LIKE', "%2019-10-$cari%")->paginate(10);
+        }  
         
         return view('backend.btn.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
     }
@@ -230,7 +270,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $nopember = BtnData::where('tanggal_1', 'like', '%2019-11%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $nopember = BtnData::where('tanggal_1', 'LIKE', "%2019-11-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
     }
     
@@ -238,7 +282,11 @@ class BtnController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $desember = BtnData::where('tanggal_1', 'like', '%2019-12%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $desember = BtnData::where('tanggal_1', 'LIKE', "%2019-12-$cari%")->paginate(10);
+        }  
+
         return view('backend.btn.perbulan.desember', compact('kode_transaksi_id', 'desember'));
     }
 }

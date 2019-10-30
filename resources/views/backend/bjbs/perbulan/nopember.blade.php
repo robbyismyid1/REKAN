@@ -12,14 +12,28 @@
 
 @section('content')
 
-{{-- <form class="form-inline" action="/admin/bjbs-januari" method="GET">
-<div class="form-group">
-    <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
-</div>
-</form>
-<br> --}}
-
+  <div class="text-center">
+    <a href="/admin/bjbs-januari" class="btn btn-info" role="button">Januari</a>&nbsp;
+    <a href="/admin/bjbs-februari" class="btn btn-info" role="button">Februari</a>&nbsp;
+    <a href="/admin/bjbs-maret" class="btn btn-info" role="button">Maret</a>&nbsp;
+    <a href="/admin/bjbs-april" class="btn btn-info" role="button">April</a>&nbsp;
+    <a href="/admin/bjbs-mei" class="btn btn-info" role="button">Mei</a>&nbsp;
+    <a href="/admin/bjbs-juni" class="btn btn-info" role="button">Juni</a>&nbsp;
+    <a href="/admin/bjbs-juli" class="btn btn-info" role="button">Juli</a>&nbsp;
+    <a href="/admin/bjbs-agustus" class="btn btn-info" role="button">Agustus</a>&nbsp;
+    <a href="/admin/bjbs-september" class="btn btn-info" role="button">September</a>&nbsp;
+    <a href="/admin/bjbs-oktober" class="btn btn-info" role="button">Oktober</a>&nbsp;
+    <a href="/admin/bjbs-nopember" class="btn btn-info active" role="button">Nopember</a>&nbsp;
+    <a href="/admin/bjbs-desember" class="btn btn-info" role="button">Desember</a>
+  </div>
+  <br>
+  <form class="form-inline" action="/admin/bjbs-nopember" method="GET">
+    <div class="form-group">
+        <input class="form-control" type="text" name="cari" placeholder="Masukan tanggal saja . .">&nbsp;
+        <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
+  </div>
+  </form>
+  <br>
     <div class="card">        
           <div class="table-responsive">
             <table class="table table-bordered" id="table-1">
@@ -38,6 +52,7 @@
                   <th class="bg-white" style="color:black">Kode Transaksi</th>
                 </tr>
               </thead>
+              <tbody></tbody>
               <tbody>
                 @foreach($nopember as $data)
                     <tr>

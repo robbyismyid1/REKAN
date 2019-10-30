@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', function() {
-    return redirect('/admin/bjbs-landing-page');
+    return redirect('/admin/dashboard');
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+    Route::get('/dashboard', 'DashboardController@index');
     
     Route::resource('/kode-transaksi', 'KodetransaksiController');
 
@@ -39,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bri-nopember', 'BriController@nopember');
     Route::get('/bri-desember', 'BriController@desember');
     Route::get('/bri/export', 'CsvFileController@csv_exbri')->name('export.bri');
-    Route::post('/bri/import', 'CsvFileController@csv_imbri')->name('import');
+    // Route::post('/bri/import', 'CsvFileController@csv_imbri')->name('import');
 
     Route::resource('/bri-syariah', 'BrisController');
     Route::get('/bri-syariah-rekap-tahun', 'BrisController@rekaptahun');
@@ -57,7 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bri-syariah-nopember', 'BrisController@nopember');
     Route::get('/bri-syariah-desember', 'BrisController@desember');
     Route::get('/bri-syariah/export', 'CsvFileController@csv_exbris')->name('export.bris');
-    Route::post('/bri-syariah/import', 'CsvFileController@csv_imbris')->name('import');
+    // Route::post('/bri-syariah/import', 'CsvFileController@csv_imbris')->name('import');
 
     Route::resource('/btn', 'BtnController');
     Route::get('/btn-rekap-tahun', 'BtnController@rekaptahun');
@@ -75,7 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/btn-nopember', 'BtnController@nopember');
     Route::get('/btn-desember', 'BtnController@desember');
     Route::get('/btn/export', 'CsvFileController@csv_exbtn')->name('export.btn');
-    Route::post('/btn/import', 'CsvFileController@csv_imbtn')->name('import');
+    // Route::post('/btn/import', 'CsvFileController@csv_imbtn')->name('import');
 
     Route::resource('/bjbs', 'BjbsController');
     Route::get('/bjbs-rekap-tahun', 'BjbsController@rekaptahun');
@@ -92,8 +94,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bjbs-oktober', 'BjbsController@oktober');
     Route::get('/bjbs-nopember', 'BjbsController@nopember');
     Route::get('/bjbs-desember', 'BjbsController@desember');
-    Route::get('/bjbs/export', 'CsvFileController@csv_exbjbs')->name('export.bjbs');
-    Route::post('/bjbs/import', 'CsvFileController@csv_imbjbs')->name('import');
+    Route::get('/bjbs/export', 'BjbsController@csv_exbjbs');
+    // Route::post('/bjbs/import', 'CsvFileController@csv_imbjbs')->name('import');
 
     Route::resource('/bjbs-h2h', 'Bjbsh2hController');
     Route::get('/bjbs-h2h-rekap-tahun', 'Bjbsh2hController@rekaptahun');
@@ -111,7 +113,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bjbs-h2h-nopember', 'Bjbsh2hController@nopember');
     Route::get('/bjbs-h2h-desember', 'Bjbsh2hController@desember');
     Route::get('/bjbs-h2h/export', 'CsvFileController@csv_exbjbsh2h')->name('export.bjbsh2h');
-    Route::post('/bjbs-h2h/import', 'CsvFileController@csv_imbjbsh2h')->name('import');
+    // Route::post('/bjbs-h2h/import', 'CsvFileController@csv_imbjbsh2h')->name('import');
 
     Route::resource('/bsm', 'BsmController');
     Route::get('/bsm-rekap-tahun', 'BsmController@rekaptahun');
@@ -129,7 +131,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bsm-nopember', 'BsmController@nopember');
     Route::get('/bsm-desember', 'BsmController@desember');
     Route::get('/bsm/export', 'CsvFileController@csv_exbsm')->name('export.bsm');
-    Route::post('/bsm/import', 'CsvFileController@csv_imbsm')->name('import');
+    // Route::post('/bsm/import', 'CsvFileController@csv_imbsm')->name('import');
 
     Route::resource('/user', 'UsersController');
 });

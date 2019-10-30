@@ -12,14 +12,28 @@
 
 @section('content')
 
-{{-- <form class="form-inline" action="/admin/bjbs-januari" method="GET">
-<div class="form-group">
-    <input class="form-control" type="text" name="keyword" placeholder="Cari data ..">&nbsp;
-    <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
-</div>
-</form>
-<br> --}}
-
+  <div class="text-center">
+    <a href="/admin/bri-januari" class="btn btn-info" role="button">Januari</a>&nbsp;
+    <a href="/admin/bri-februari" class="btn btn-info" role="button">Februari</a>&nbsp;
+    <a href="/admin/bri-maret" class="btn btn-info" role="button">Maret</a>&nbsp;
+    <a href="/admin/bri-april" class="btn btn-info" role="button">April</a>&nbsp;
+    <a href="/admin/bri-mei" class="btn btn-info" role="button">Mei</a>&nbsp;
+    <a href="/admin/bri-juni" class="btn btn-info" role="button">Juni</a>&nbsp;
+    <a href="/admin/bri-juli" class="btn btn-info" role="button">Juli</a>&nbsp;
+    <a href="/admin/bri-agustus" class="btn btn-info active" role="button">Agustus</a>&nbsp;
+    <a href="/admin/bri-september" class="btn btn-info" role="button">September</a>&nbsp;
+    <a href="/admin/bri-oktober" class="btn btn-info" role="button">Oktober</a>&nbsp;
+    <a href="/admin/bri-nopember" class="btn btn-info" role="button">Nopember</a>&nbsp;
+    <a href="/admin/bri-desember" class="btn btn-info" role="button">Desember</a>
+  </div>
+  <br>
+  <form class="form-inline" action="/admin/bri-agustus" method="GET">
+  <div class="form-group">
+      <input class="form-control" type="text" name="cari" placeholder="Masukan tanggal saja . .">&nbsp;
+      <button type="submit" class="btn bg-success"><li class="fa fa-search"></li></button>&nbsp;
+  </div>
+  </form>
+  <br>
     <div class="card">        
           <div class="table-responsive">
             <table class="table table-bordered" id="table-1">
@@ -38,6 +52,7 @@
                   <th class="bg-white" style="color:black">Kode Transaksi</th>
                 </tr>
               </thead>
+              <tbody></tbody>
               <tbody>
                 @foreach($agustus as $data)
                     <tr>

@@ -13,6 +13,6 @@ class BriData extends Model
     public $timestamp = true;
 
     public function kode_transaksi() {
-        return $this->belongsTo('App\KodeTransaki', 'kode_transaksi_id');
+        return $this->belongsTo('App\KodeTransaksi', 'kode_transaksi_id');
     }
 }

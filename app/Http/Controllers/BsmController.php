@@ -120,7 +120,7 @@ class BsmController extends Controller
         $old = $bsm->remark;
         $bsm->delete();
         
-        // toastr()->error('Data berhasil dihapus!', "$old");
+        toastr()->error('Data berhasil dihapus!', "$old");
         
         return redirect()->route('bsm.index');
     }
@@ -150,6 +150,10 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $januari = BsmData::where('tanggal_1', 'like', '%2019-01%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $januari = BsmData::where('tanggal_1', 'LIKE', "%2019-01-$cari%")->paginate(10);
+        }  
         
         return view('backend.bsm.perbulan.januari', compact('kode_transaksi_id', 'januari'));
     }
@@ -158,7 +162,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $februari = BsmData::where('tanggal_1', 'like', '%2019-02%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $februari = BsmData::where('tanggal_1', 'LIKE', "%2019-02-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.februari', compact('kode_transaksi_id', 'februari'));
     }
 
@@ -166,7 +174,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $maret = BsmData::where('tanggal_1', 'like', '%2019-03%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $maret = BsmData::where('tanggal_1', 'LIKE', "%2019-03-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.maret', compact('kode_transaksi_id', 'maret'));
     }
 
@@ -174,7 +186,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $april = BsmData::where('tanggal_1', 'like', '%2019-04%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $april = BsmData::where('tanggal_1', 'LIKE', "%2019-04-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.april', compact('kode_transaksi_id', 'april'));
     }
 
@@ -182,7 +198,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $mei = BsmData::where('tanggal_1', 'like', '%2019-05%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $mei = BsmData::where('tanggal_1', 'LIKE', "%2019-05-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.mei', compact('kode_transaksi_id', 'mei'));
     }
 
@@ -190,7 +210,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juni = BsmData::where('tanggal_1', 'like', '%2019-06%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juni = BsmData::where('tanggal_1', 'LIKE', "%2019-06-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.juni', compact('kode_transaksi_id', 'juni'));
     }
 
@@ -198,7 +222,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juli = BsmData::where('tanggal_1', 'like', '%2019-07%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juli = BsmData::where('tanggal_1', 'LIKE', "%2019-07-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.juli', compact('kode_transaksi_id', 'juli'));
     }
 
@@ -206,7 +234,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $agustus = BsmData::where('tanggal_1', 'like', '%2019-08%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $agustus = BsmData::where('tanggal_1', 'LIKE', "%2019-08-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
     }
 
@@ -214,7 +246,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $september = BsmData::where('tanggal_1', 'like', '%2019-09%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $september = BsmData::where('tanggal_1', 'LIKE', "%2019-09-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.september', compact('kode_transaksi_id', 'september'));
     }
 
@@ -222,6 +258,10 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $oktober = BsmData::where('tanggal_1', 'like', '%2019-10%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $oktober = BsmData::where('tanggal_1', 'LIKE', "%2019-10-$cari%")->paginate(10);
+        }  
         
         return view('backend.bsm.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
     }
@@ -230,7 +270,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $nopember = BsmData::where('tanggal_1', 'like', '%2019-11%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $nopember = BsmData::where('tanggal_1', 'LIKE', "%2019-11-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
     }
     
@@ -238,7 +282,11 @@ class BsmController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $desember = BsmData::where('tanggal_1', 'like', '%2019-12%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $desember = BsmData::where('tanggal_1', 'LIKE', "%2019-12-$cari%")->paginate(10);
+        }  
+
         return view('backend.bsm.perbulan.desember', compact('kode_transaksi_id', 'desember'));
     }
 }

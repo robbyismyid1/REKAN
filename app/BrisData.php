@@ -8,7 +8,7 @@ class BrisData extends Model
 {
     //
     protected $fillable = [
-        'no_urut', 'tanggal_1', 'tanggal_2', 'remark', 'kode_rekening_bank', 'kredit', 'debit', 'saldo', 'kode_transaksi_id'
+        'no_urut', 'tanggal_1', 'tanggal_2', 'remark', 'kode_rekening_bank', 'debit', 'kredit', 'saldo', 'kode_transaksi_id'
        ];
     public $timestamp = true;
 

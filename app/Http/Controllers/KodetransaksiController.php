@@ -94,7 +94,7 @@ class KodetransaksiController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::findOrFail($request->id);
         $bjbs_data = BjbsData::all();
-        $old = $kode_transaksi_id->nama_kt;
+        // $old = $kode_transaksi_id->nama_kt;
         $kode_transaksi_id->delete();
 
         return redirect()->route('kode-transaksi.index');

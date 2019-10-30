@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/bjbs-landing-page';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.

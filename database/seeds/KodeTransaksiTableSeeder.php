@@ -14,7 +14,7 @@ class KodeTransaksiTableSeeder extends Seeder
         $kode_transaksi = new \App\KodeTransaksi;
         $kode_transaksi->id = 1;
         $kode_transaksi->nama = "0";
-        $kode_transaksi->nama_kt = "-";
+        $kode_transaksi->nama_kt = "Tidak ada keterangan";
         $kode_transaksi->save();
 
         $kode_transaksi = new \App\KodeTransaksi;

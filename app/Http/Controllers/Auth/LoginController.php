@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/bjbs-landing-page';
+    protected $redirectTo = '/admin/dashboard';
     
     protected $username;
     /**

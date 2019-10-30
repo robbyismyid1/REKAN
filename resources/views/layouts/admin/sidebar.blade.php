@@ -1,18 +1,18 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="">REKAN</a>
+            <a href="/admin/dashboard">REKAN</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="">RKN</a>
+                <a href="/admin/dashboard"><img src="../admin/assets/img/uinlogo.png" width="50" height="54" title="UIN" alt="Flower"></a>
         </div>
         <ul class="sidebar-menu">
             <li style="color:green" class="menu-header">Dashboard</li>
-            <li class="dropdown {{ (request()->is('admin')) ? 'active' : '' }}" >
-                <a href="/admin/dashboard"><i class="fas fa-fire"></i><span style="color:black">Dashboard</span></a>
+            <li class="dropdown {{ (request()->is('admin/dashboard')) ? 'active' : '' }}" >
+                <a href="/admin/dashboard"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header" style="color:green">Manage</li>
-            <li class={{ (request()->is('admin/user')) ? 'active' : '' }} ><a class="nav-link" href="{{ url('/admin/user') }}"><i class="fas fa-scroll"></i> <span style="color:black">User Manage</span></a></li>
+            <li class={{ (request()->is('admin/user')) ? 'active' : '' }} ><a class="nav-link" href="{{ url('/admin/user') }}"><i class="fas fa-scroll"></i> <span>User Manage</span></a></li>
             <li class="menu-header" style="color:green">Component</li>
             <li
             @if (request()->is('admin/bjbs'))
@@ -289,7 +289,7 @@
             class="dropdown active"
             @endif
             >
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Komponen</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Rekening Koran</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ (request()->is('admin/bjbs-landing-page')) ? 'active' : '' }} 
                         {{ (request()->is('admin/bjbs')) ? 'active' : '' }} 

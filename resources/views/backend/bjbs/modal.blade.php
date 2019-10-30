@@ -348,12 +348,13 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="file" accept=".csv">
                     <br>
+                    <br>
                     <button class="btn btn-success">Import User Data</button>
-                    <a class="btn btn-warning" href="{{ route('export.bjbs') }}">Export User Data</a>
+                    <a class="btn btn-warning" href="/admin/bjbs/export">Export User Data</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

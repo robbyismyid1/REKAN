@@ -67,7 +67,7 @@
                             data-waktu_posting="{{ $data->waktu_posting }}" 
                             data-debit="{{ $data->debit }}" 
                             data-kredit="{{ $data->kredit }}" 
-                            ata-saldo="{{ $data->saldo }}" 
+                            data-saldo="{{ $data->saldo }}" 
                             data-kode_transaksi_id="{{ 
                             $data->kode_transaksi->nama }}">
                             <i class="fa fa-pen"></i></button>

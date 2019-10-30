@@ -120,7 +120,7 @@ class Bjbsh2hController extends Controller
         $old = $bjbsh2h->remark;
         $bjbsh2h->delete();
         
-        // toastr()->error('Data berhasil dihapus!', "$old");
+        toastr()->error('Data berhasil dihapus!', "$old");
         
         return redirect()->route('bjbs-h2h.index');
     }
@@ -149,6 +149,10 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $januari = Bjbsh2hData::where('tanggal_1', 'like', '%2019-01%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $januari = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-01-$cari%")->paginate(10);
+        }  
         
         return view('backend.bjbsh2h.perbulan.januari', compact('kode_transaksi_id', 'januari'));
     }
@@ -157,7 +161,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $februari = Bjbsh2hData::where('tanggal_1', 'like', '%2019-02%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $februari = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-02-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.februari', compact('kode_transaksi_id', 'februari'));
     }
 
@@ -165,7 +173,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $maret = Bjbsh2hData::where('tanggal_1', 'like', '%2019-03%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $maret = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-03-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.maret', compact('kode_transaksi_id', 'maret'));
     }
 
@@ -173,7 +185,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $april = Bjbsh2hData::where('tanggal_1', 'like', '%2019-04%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $april = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-04-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.april', compact('kode_transaksi_id', 'april'));
     }
 
@@ -181,7 +197,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $mei = Bjbsh2hData::where('tanggal_1', 'like', '%2019-05%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $mei = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-05-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.mei', compact('kode_transaksi_id', 'mei'));
     }
 
@@ -189,7 +209,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juni = Bjbsh2hData::where('tanggal_1', 'like', '%2019-06%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juni = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-06-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.juni', compact('kode_transaksi_id', 'juni'));
     }
 
@@ -197,7 +221,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $juli = Bjbsh2hData::where('tanggal_1', 'like', '%2019-07%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $juli = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-07-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.juli', compact('kode_transaksi_id', 'juli'));
     }
 
@@ -205,7 +233,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $agustus = Bjbsh2hData::where('tanggal_1', 'like', '%2019-08%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $agustus = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-08-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
     }
 
@@ -213,7 +245,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $september = Bjbsh2hData::where('tanggal_1', 'like', '%2019-09%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $september = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-09-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.september', compact('kode_transaksi_id', 'september'));
     }
 
@@ -221,6 +257,10 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $oktober = Bjbsh2hData::where('tanggal_1', 'like', '%2019-10%')->paginate(10);
+        $cari = $request->cari;
+        if ($cari) {
+            $oktober = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-10-$cari%")->paginate(10);
+        }  
         
         return view('backend.bjbsh2h.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
     }
@@ -229,7 +269,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $nopember = Bjbsh2hData::where('tanggal_1', 'like', '%2019-11%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $nopember = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-11-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
     }
     
@@ -237,7 +281,11 @@ class Bjbsh2hController extends Controller
     {
         $kode_transaksi_id = KodeTransaksi::all();
         $desember = Bjbsh2hData::where('tanggal_1', 'like', '%2019-12%')->paginate(10);
-        
+        $cari = $request->cari;
+        if ($cari) {
+            $desember = Bjbsh2hData::where('tanggal_1', 'LIKE', "%2019-12-$cari%")->paginate(10);
+        }  
+
         return view('backend.bjbsh2h.perbulan.desember', compact('kode_transaksi_id', 'desember'));
     }
 }
