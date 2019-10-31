@@ -90,7 +90,7 @@
                             data-debit="{{ $data->debit }}" 
                             data-kredit="{{ $data->kredit }}" 
                             data-saldo="{{ $data->saldo }}" 
-                            data-kode_transaksi_id="{{ $data->kode_transaksi_id }}">
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
                         @elseif (Auth::user()->role_id == 2)
@@ -117,7 +117,7 @@
                             data-debit="{{ $data->debit }}" 
                             data-kredit="{{ $data->kredit }}" 
                             data-saldo="{{ $data->saldo }}" 
-                            data-kode_transaksi_id="{{ $data->kode_transaksi_id }}">
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
                         @endif

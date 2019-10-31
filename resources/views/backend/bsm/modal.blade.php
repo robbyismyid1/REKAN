@@ -14,7 +14,7 @@
                         @csrf
                         <div class="form-group">
                           <label for="">No urut</label>
-                          <input type="number" name="no_urut" id="no_urut" class="form-control{{ $errors->has('no_urut') ? ' is-invalid' : '' }}" placeholder="No urut" aria-describedby="helpId">
+                          <input type="number" name="no_urut" id="no_urut" class="form-control{{ $errors->has('no_urut') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
     
                           @if ($errors->has('no_urut'))
                                 <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Posting</label>
-                            <input type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="Tanggal Posting" aria-describedby="helpId">
+                            <input type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('tanggal_1'))
                                <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Valuta</label>
-                            <input type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="Tanggal Valuta" aria-describedby="helpId">
+                            <input type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('tanggal_2'))
                                <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Deskripsi</label>
-                            <input type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="Deskripsi" aria-describedby="helpId">
+                            <input type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('remark'))
                                   <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                           </div>
                           <div class="form-group">
                             <label for="">No. Referensi</label>
-                            <input type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="No. Referensi" aria-describedby="helpId">
+                            <input type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('kode_rekening_bank'))
                                   <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                           </div>
                           <div class="form-group">
                             <label for="">Debit</label>
-                            <input type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="Debit" aria-describedby="helpId">
+                            <input type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('debit'))
                                   <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                           </div>
                           <div class="form-group">
                             <label for="">Kredit</label>
-                            <input type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="Kredit" aria-describedby="helpId">
+                            <input type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('kredit'))
                                   <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                           </div>
                           <div class="form-group">
                             <label for="">Saldo</label>
-                            <input type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="Saldo" aria-describedby="helpId">
+                            <input type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('saldo'))
                                   <span class="invalid-feedback" role="alert">
@@ -93,6 +93,7 @@
                               @endif
                           </div>
                           <div class="form-group">
+                            <label for="">Kode Transaksi</label>
                             <select class="form-control selectric" id="kode_transaksi_id " name="kode_transaksi_id" required>
                                 <option value="">- Kode Transaksi -</option>
                             @foreach($kode_transaksi_id as $data)
@@ -135,7 +136,7 @@
                         </div>
                         <div class="form-group">
                                 <label for="">Tanggal Posting</label>
-                                <input disabled readonly type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="Tanggal Posting" aria-describedby="helpId">
+                                <input disabled readonly type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('tanggal_1'))
                                    <span class="invalid-feedback" role="alert">
@@ -145,7 +146,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Valuta</label>
-                                <input disabled readonly type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="Tanggal Valuta" aria-describedby="helpId">
+                                <input disabled readonly type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('tanggal_2'))
                                    <span class="invalid-feedback" role="alert">
@@ -155,7 +156,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Deskripsi</label>
-                                <input disabled readonly type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="Deskripsi" aria-describedby="helpId">
+                                <input disabled readonly type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('remark'))
                                       <span class="invalid-feedback" role="alert">
@@ -165,7 +166,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">No. Referensi</label>
-                                <input disabled readonly type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="No. Referensi" aria-describedby="helpId">
+                                <input disabled readonly type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('kode_rekening_bank'))
                                       <span class="invalid-feedback" role="alert">
@@ -175,7 +176,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">Debit</label>
-                                <input disabled readonly type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="Debit" aria-describedby="helpId">
+                                <input disabled readonly type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('debit'))
                                       <span class="invalid-feedback" role="alert">
@@ -185,7 +186,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">Kredit</label>
-                                <input disabled readonly type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="Kredit" aria-describedby="helpId">
+                                <input disabled readonly type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('kredit'))
                                       <span class="invalid-feedback" role="alert">
@@ -195,7 +196,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">Saldo</label>
-                                <input disabled readonly type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="Saldo" aria-describedby="helpId">
+                                <input disabled readonly type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
           
                                 @if ($errors->has('saldo'))
                                       <span class="invalid-feedback" role="alert">
@@ -205,7 +206,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">Kode Transaksi</label>
-                                <input disabled readonly type="text" name="kode_transaksi_id" id="kode_transaksi_id" class="form-control{{ $errors->has('kode_transaksi_id') ? ' is-invalid' : '' }}" placeholder="kode_transaksi_id" aria-describedby="helpId">
+                                <input disabled readonly type="text" name="kode_transaksi_id" id="kode_transaksi_id" class="form-control{{ $errors->has('kode_transaksi_id') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
     
                                 @if ($errors->has('kode_transaksi_id'))
                                     <span class="invalid-feedback" role="alert">
@@ -240,7 +241,7 @@
                         <div class="form-group">
                             <input type="hidden" name="id" id="id">
                             <label for="">No urut</label>
-                            <input disabled readonly type="number" name="no_urut" id="no_urut" class="form-control{{ $errors->has('no_urut') ? ' is-invalid' : '' }}" placeholder="No urut" aria-describedby="helpId">
+                            <input disabled readonly type="number" name="no_urut" id="no_urut" class="form-control{{ $errors->has('no_urut') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('no_urut'))
                                   <span class="invalid-feedback" role="alert">
@@ -250,7 +251,7 @@
                           </div>
                           <div class="form-group">
                               <label for="">Tanggal Posting</label>
-                              <input type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="Tanggal Posting" aria-describedby="helpId">
+                              <input type="date" name="tanggal_1" id="tanggal_1" class="form-control{{ $errors->has('tanggal_1') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('tanggal_1'))
                                  <span class="invalid-feedback" role="alert">
@@ -260,7 +261,7 @@
                           </div>
                           <div class="form-group">
                               <label for="">Tanggal Valuta</label>
-                              <input type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="Tanggal Valuta" aria-describedby="helpId">
+                              <input type="date" name="tanggal_2" id="tanggal_2" class="form-control{{ $errors->has('tanggal_2') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('tanggal_2'))
                                  <span class="invalid-feedback" role="alert">
@@ -270,7 +271,7 @@
                           </div>
                           <div class="form-group">
                               <label for="">Deskripsi</label>
-                              <input type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="Deskripsi" aria-describedby="helpId">
+                              <input type="text" name="remark" id="remark" class="form-control{{ $errors->has('remark') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('remark'))
                                     <span class="invalid-feedback" role="alert">
@@ -280,7 +281,7 @@
                             </div>
                             <div class="form-group">
                               <label for="">No. Referensi</label>
-                              <input type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="No. Referensi" aria-describedby="helpId">
+                              <input type="text" name="kode_rekening_bank" id="kode_rekening_bank" class="form-control{{ $errors->has('kode_rekening_bank') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('kode_rekening_bank'))
                                     <span class="invalid-feedback" role="alert">
@@ -290,7 +291,7 @@
                             </div>
                             <div class="form-group">
                               <label for="">Debit</label>
-                              <input type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="Debit" aria-describedby="helpId">
+                              <input type="number" name="debit" id="debit" class="form-control{{ $errors->has('debit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('debit'))
                                     <span class="invalid-feedback" role="alert">
@@ -300,7 +301,7 @@
                             </div>
                             <div class="form-group">
                               <label for="">Kredit</label>
-                              <input type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="Kredit" aria-describedby="helpId">
+                              <input type="number" name="kredit" id="kredit" class="form-control{{ $errors->has('kredit') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('kredit'))
                                     <span class="invalid-feedback" role="alert">
@@ -310,7 +311,7 @@
                             </div>
                             <div class="form-group">
                               <label for="">Saldo</label>
-                              <input type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="Saldo" aria-describedby="helpId">
+                              <input type="number" name="saldo" id="saldo" class="form-control{{ $errors->has('saldo') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
         
                               @if ($errors->has('saldo'))
                                     <span class="invalid-feedback" role="alert">

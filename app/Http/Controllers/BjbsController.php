@@ -155,6 +155,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $januari = BjbsData::where('tanggal_1', 'LIKE', "%2019-01-$cari%")->paginate(10);
+            $januari->appends($request->only('cari'));
         }   
 
         return view('backend.bjbs.perbulan.januari', compact('kode_transaksi_id', 'januari'));
@@ -167,6 +168,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $februari = BjbsData::where('tanggal_1', 'LIKE', "%2019-02-$cari%")->paginate(10);
+            $februari->appends($request->only('cari'));
         }   
         
         return view('backend.bjbs.perbulan.februari', compact('kode_transaksi_id', 'februari'));
@@ -179,6 +181,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $maret = BjbsData::where('tanggal_1', 'LIKE', "%2019-03-$cari%")->paginate(10);
+            $maret->appends($request->only('cari'));
         }  
         
         return view('backend.bjbs.perbulan.maret', compact('kode_transaksi_id', 'maret'));
@@ -191,6 +194,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $april = BjbsData::where('tanggal_1', 'LIKE', "%2019-04-$cari%")->paginate(10);
+            $april->appends($request->only('cari'));
         }  
         
         return view('backend.bjbs.perbulan.april', compact('kode_transaksi_id', 'april'));
@@ -203,6 +207,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $mei = BjbsData::where('tanggal_1', 'LIKE', "%2019-05-$cari%")->paginate(10);
+            $mei->appends($request->only('cari'));
         }  
         
         return view('backend.bjbs.perbulan.mei', compact('kode_transaksi_id', 'mei'));
@@ -215,6 +220,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $juni = BjbsData::where('tanggal_1', 'LIKE', "%2019-06-$cari%")->paginate(10);
+            $juni->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.juni', compact('kode_transaksi_id', 'juni'));
@@ -227,6 +233,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $juli = BjbsData::where('tanggal_1', 'LIKE', "%2019-07-$cari%")->paginate(10);
+            $juli->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.juli', compact('kode_transaksi_id', 'juli'));
@@ -239,6 +246,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $agustus = BjbsData::where('tanggal_1', 'LIKE', "%2019-08-$cari%")->paginate(10);
+            $agustus->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.agustus', compact('kode_transaksi_id', 'agustus'));
@@ -251,6 +259,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $september = BjbsData::where('tanggal_1', 'LIKE', "%2019-09-$cari%")->paginate(10);
+            $september->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.september', compact('kode_transaksi_id', 'september'));
@@ -263,6 +272,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $oktober = BjbsData::where('tanggal_1', 'LIKE', "%2019-10-$cari%")->paginate(10);
+            $oktober->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.oktober', compact('kode_transaksi_id', 'oktober'));
@@ -275,6 +285,7 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $nopember = BjbsData::where('tanggal_1', 'LIKE', "%2019-11-$cari%")->paginate(10);
+            $nopember->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.nopember', compact('kode_transaksi_id', 'nopember'));
@@ -287,19 +298,9 @@ class BjbsController extends Controller
         $cari = $request->cari;
         if ($cari) {
             $desember = BjbsData::where('tanggal_1', 'LIKE', "%2019-12-$cari%")->paginate(10);
+            $desember->appends($request->only('cari'));
         } 
 
         return view('backend.bjbs.perbulan.desember', compact('kode_transaksi_id', 'desember'));
-    }
-
-    public function csv_exbjbs()
-    {
-        return Excel::download(new CsvExBjbs, 'bjbs.csv');
-    }
-    
-    public function csv_imbjbs()
-    {
-        Excel::import(new CsvImBjbs, request()->file('file'));
-        return back();
     }
 }
