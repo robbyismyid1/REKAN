@@ -5,13 +5,19 @@
     BJBS
 @endsection
 @section('header') BJBS @endsection
+@if (Auth::user()->role_id == 1)
 @section('button-add')
     <div class="section-header-button">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-bjbs">Tambah Data</button>
-        &nbsp;
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#import-ex">Import / Export</button>
     </div>
 @endsection
+@elseif (Auth::user()->role_id == 2)
+@section('button-add')
+    <div class="section-header-button">
+        <button disabled type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-bjbs">Tambah Data</button>
+    </div>
+@endsection
+@endif
 @section('desc') Kumpulan data BJBS @endsection
 @section('header-2') BJBS @endsection
 
@@ -60,6 +66,7 @@
                         <td>Rp.{{ number_format($data->kredit, 0, '', '.') }}</td>
                         <td>Rp.{{ number_format($data->saldo, 0, '', '.') }}</td>
                         <td>{{ $data->kode_transaksi->nama }} ({{ $data->kode_transaksi_id }})</td>
+                        @if (Auth::user()->role_id == 1)
                         <td >
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bjbs" 
                             data-id="{{ $data->id }}" 
@@ -86,6 +93,34 @@
                             data-kode_transaksi_id="{{ $data->kode_transaksi_id }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
+                        @elseif (Auth::user()->role_id == 2)
+                        <td >
+                            <button disabled type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-bjbs" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-kode="{{ $data->kode }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-no_bukti="{{ $data->no_bukti }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi->nama }}">
+                            <i class="fa fa-pen"></i></button>
+                            <button disabled type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-bjbs" 
+                            data-id="{{ $data->id }}" 
+                            data-no_urut="{{ $data->no_urut }}" 
+                            data-tanggal_1="{{ $data->tanggal_1 }}" 
+                            data-kode="{{ $data->kode }}" 
+                            data-remark="{{ $data->remark }}" 
+                            data-no_bukti="{{ $data->no_bukti }}" 
+                            data-debit="{{ $data->debit }}" 
+                            data-kredit="{{ $data->kredit }}" 
+                            data-saldo="{{ $data->saldo }}" 
+                            data-kode_transaksi_id="{{ $data->kode_transaksi_id }}">
+                            <i class="fa fa-trash"></i></button>
+                        </td>
+                        @endif
                     </tr>
                 @endforeach
               </tbody>

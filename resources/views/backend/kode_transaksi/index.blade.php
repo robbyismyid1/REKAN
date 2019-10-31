@@ -5,11 +5,20 @@
     Kode Transaksi
 @endsection
 @section('header') Kode Transaksi @endsection
-@section('button-add')
-    <div class="section-header-button">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-transaksi">Tambah Data</button>
-    </div>
-@endsection
+@if (Auth::user()->role_id == 1)
+  @section('button-add')
+  <div class="section-header-button">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-transaksi">Tambah Data</button>
+  </div>
+  @endsection
+@elseif (Auth::user()->role_id == 2)
+  @section('button-add')
+  <div class="section-header-button">
+      <button disabled type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-transaksi">Tambah Data</button>
+  </div>
+  @endsection
+@endif
+
 @section('desc') Kumpulan data Kode Transaksi @endsection
 @section('header-2') Kode Transaksi @endsection
 
@@ -46,6 +55,7 @@
                         </td>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->nama_kt }}</td>
+                        @if (Auth::user()->role_id == 1)
                         <td >
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-transaksi" 
                             data-id="{{ $data->id }}" 
@@ -58,6 +68,20 @@
                             data-nama_kt="{{ $data->nama_kt }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
+                        @elseif (Auth::user()->role_id == 2)
+                        <td>
+                            <button disabled type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-transaksi" 
+                            data-id="{{ $data->id }}" 
+                            data-nama="{{ $data->nama }}" 
+                            data-nama_kt="{{ $data->nama_kt }}">
+                            <i class="fa fa-pen"></i></button>
+                            <button disabled type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-transaksi" 
+                            data-id="{{ $data->id }}" 
+                            data-nama="{{ $data->nama }}" 
+                            data-nama_kt="{{ $data->nama_kt }}">
+                            <i class="fa fa-trash"></i></button>
+                        </td>
+                        @endif
                     </tr>
                 @endforeach
               </tbody>

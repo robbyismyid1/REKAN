@@ -45,6 +45,8 @@
                     </div>
                 </section>
             </div>
+            
+            @include('backend.user.modal')
 
             {{-- Footer --}}
             <footer class="main-footer">
@@ -69,6 +71,7 @@
             var name = button.data('name')
             var username = button.data('username')
             var email = button.data('email')
+            var roles = button.data('roles')
             var password = button.data('password')
             var created_at = button.data('created_at')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -79,6 +82,7 @@
             modal.find('#name').val(name)
             modal.find('#username').val(username)
             modal.find('#email').val(email)
+            modal.find('#roles').val(roles)
             modal.find('#password').val(password)
             modal.find('#created_at').val(created_at)
             })
@@ -91,6 +95,7 @@
             var name = button.data('name')
             var username = button.data('username')
             var email = button.data('email')
+            var roles = button.data('roles')
             var passwrod = button.data('passwrod')
             var created_at = button.data('created_at')
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -101,6 +106,7 @@
             modal.find('#name').val(name)
             modal.find('#username').val(username)
             modal.find('#email').val(email)
+            modal.find('#roles').val(roles)
             modal.find('#password').val(password)
             modal.find('#created_at').val(created_at)
             })

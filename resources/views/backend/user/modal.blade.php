@@ -43,6 +43,15 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label for="">Level</label>
+                            <select class="form-control selectric" name="roles" required>
+                            <option value="">- pilih level -</option>
+                            @foreach($roles as $data)
+                                <option value="{{ $data->id }}">{{ $data->name }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="">Password</label>
                             <input type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="password" aria-describedby="helpId">
       
@@ -104,6 +113,16 @@
                                    <span class="invalid-feedback" role="alert">
                                       <strong>{{ $errors->first('email') }}</strong>
                                   </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="">Level</label>
+                                <input disabled readonly type="roles" name="roles" id="roles" class="form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+        
+                                @if ($errors->has('roles'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('roles') }}</strong>
+                                </span>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -170,6 +189,16 @@
                                <span class="invalid-feedback" role="alert">
                                   <strong>{{ $errors->first('email') }}</strong>
                               </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="">Level</label>
+                            <input disabled readonly type="roles" name="roles" id="roles" class="form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
+    
+                            @if ($errors->has('roles'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('roles') }}</strong>
+                            </span>
                             @endif
                         </div>
                         <div class="form-group">

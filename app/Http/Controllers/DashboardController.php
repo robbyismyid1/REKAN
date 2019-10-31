@@ -125,8 +125,7 @@ class DashboardController extends Controller
         + $total_dbt_bsm + $total_dbt_btn;
         $all_kdt = $total_kdt_bjbs + $total_kdt_bjbs_h2h + $total_kdt_bri + $total_kdt_bris 
         + $total_kdt_bsm + $total_kdt_btn;
-        $all_data = $total_bjbs + $total_bjbs_h2h + $total_bri + $total_bris + $total_bsm 
-        + $total_bsm + $total_btn;
+        $all_data = $total_bjbs + $total_bjbs_h2h + $total_bri + $total_bris + $total_bsm + $total_btn;
 
         return view('backend.dashboard', compact('total_user', 'total_kode_transaksi', 'januari_bjbs', 'februari_bjbs', 'maret_bjbs', 
         'april_bjbs', 'mei_bjbs', 'juni_bjbs', 'juli_bjbs', 'agustus_bjbs', 'september_bjbs', 

@@ -22,9 +22,9 @@ class UserSeeder extends Seeder
 
         $user = new \App\User;
         $user->id = 2;
-        $user->name = "rey";
+        $user->name = "reynaldi";
         $user->username = "reynaldi";
-        $user->email = "rey.ky666@gmail.com";
+        $user->email = "rey@gmail.com";
         $user->password = bcrypt("123456");
         $user->role_id = 2;
         $user->save();

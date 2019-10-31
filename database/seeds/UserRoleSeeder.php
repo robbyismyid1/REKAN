@@ -11,14 +11,16 @@ class UserRoleSeeder extends Seeder
      */
     public function run()
     {
-        $user = new \App\UserRoles;
-        $user->id = 1;
-        $user->name = "Keuangan";
-        $user->save();
+        $roles = new \App\UserRoles;
+        $roles->id = 1;
+        $roles->name = "Keuangan";
+        $roles->description = "Keuangan";
+        $roles->save();
 
-        $user = new \App\UserRoles;
-        $user->id = 2;
-        $user->name = "Akademik";
-        $user->save();
+        $roles = new \App\UserRoles;
+        $roles->id = 2;
+        $roles->name = "Akademik";
+        $roles->description = "Akademik";
+        $roles->save();
     }
 }

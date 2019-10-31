@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\User;
+use App\UserRoles;
 use Session;
 
 class UsersController extends Controller
@@ -23,12 +24,13 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $user = User::all();
+        $roles = UserRoles::all();
         $cari = $request->cari;
 
         if ($cari) {
             $user = User::where('name', 'LIKE', "%$cari%")->orWhere('username', 'LIKE', "%$cari%")->orWhere('email', 'LIKE', "%$cari%")->get();
         }    
-        return view('backend.user.index', compact('user'));
+        return view('backend.user.index', compact('user', 'roles'));
     }
 
     /**
@@ -49,6 +51,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->role_id = $request->roles;
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -72,6 +75,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->role_id = $request->roles;
         $user->password = bcrypt($request->password);
         $user->save();
 

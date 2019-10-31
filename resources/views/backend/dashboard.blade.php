@@ -11,32 +11,32 @@
 
 @section('content')
 <div class="card text-dark">
-    <div class="card-deck">
-        <div class="card">
-            <div class="card mb-3" style="max-width: 540px;">
+    <div class="card-deck bg-white">
+        <div class="card bg-white">
+            <div class="card mb-3 bg-white" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="../admin/assets/img/user.png" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <a style="text-decoration: none" href="/admin/user"><h5 class="card-title">User</h5></a>
+                            <a style="text-decoration: none" href="/admin/user"><h5 style="color:black" class="card-title">User</h5></a>
                             <h1 class="card-text">{{ $total_user }}</h1>                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card mb-3" style="max-width: 540px;">
+        <div class="card bg-white">
+            <div class="card mb-3 bg-white" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="../admin/assets/img/transaksi.png" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                                <a style="text-decoration: none" href="/admin/kode-transaksi"><h5 class="card-title">Kode Transaksi</h5></a>
-                            <h1 class="card-text">{{$total_kode_transaksi    }}</h1>
+                                <a style="text-decoration: none" href="/admin/kode-transaksi"><h5 style="color:black" class="card-title">Kode Transaksi</h5></a>
+                            <h1 class="card-text">{{$total_kode_transaksi }}</h1>
                         </div>
                     </div>
                 </div>

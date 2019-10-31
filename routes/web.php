@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -132,6 +131,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/bsm-desember', 'BsmController@desember');
     Route::get('/bsm/export', 'CsvFileController@csv_exbsm')->name('export.bsm');
     // Route::post('/bsm/import', 'CsvFileController@csv_imbsm')->name('import');
-
     Route::resource('/user', 'UsersController');
 });

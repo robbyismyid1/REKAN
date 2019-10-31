@@ -1,15 +1,23 @@
 {{-- NON AJAX --}}
-@extends('layouts.master1')
+@extends('layouts.master2')
 
 @section('title')
     Users
 @endsection
 @section('header') Users @endsection
-@section('button-add')
+@if (Auth::user()->role_id == 1)
+  @section('button-add')
+  <div class="section-header-button">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-user">Tambah Data</button>
+  </div>
+  @endsection
+  @elseif (Auth::user()->role_id == 2)
+    @section('button-add')
     <div class="section-header-button">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-user">Tambah Data</button>
+        <button disabled type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-user">Tambah Data</button>
     </div>
-@endsection
+    @endsection
+@endif
 @section('desc') Manage Users @endsection
 @section('header-2') Users @endsection
 
@@ -35,8 +43,14 @@
                   <th class="bg-white" style="color:black">Name</th>
                   <th class="bg-white" style="color:black">Username</th>
                   <th class="bg-white" style="color:black">Email</th>
+                  <th class="bg-white" style="color:black">Level</th>
                   <th class="bg-white" style="color:black">Created at</th>
-                  <th class="bg-white" style="color:black">Action</th>
+                  @if (Auth::user()->role_id == 1)
+                    <th class="bg-white" style="color:black">Action</th>
+                    @elseif (Auth::user()->role_id == 2)
+                    <th class="bg-white" style="color:black">Action</th>
+                  @endif
+                  
                 </tr>
               </thead>
               <tbody></tbody>
@@ -49,23 +63,49 @@
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->username }}</td>
                         <td>{{ $data->email }}</td>
-                        <td>{{ $data->created_at }}</td>
-                        <td >
+                        <td>{{ $data->user_role->name }}</td>
+                        <td>{{ $data->created_at->toFormattedDateString() }}</td>
+                        @if (Auth::user()->role_id == 1)
+                        <td>
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-user" 
                             data-id="{{ $data->id }}" 
                             data-name="{{ $data->name }}" 
                             data-username="{{ $data->username }}" 
                             data-email="{{ $data->email }}" 
-                            data-created_at="{{ $data->created_at }}" >
+                            data-roles="{{ $data->user_role->name }}"
+                            data-created_at="{{ $data->created_at->toFormattedDateString() }}" >
                             <i class="fa fa-pen"></i></button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-user" 
                             data-id="{{ $data->id }}" 
                             data-name="{{ $data->name }}" 
                             data-username="{{ $data->username }}" 
                             data-email="{{ $data->email }}"
-                            data-created_at="{{ $data->created_at }}">
+                            data-roles="{{ $data->user_role->name }}"
+                            data-created_at="{{ $data->created_at->toFormattedDateString() }}">
                             <i class="fa fa-trash"></i></button>
                         </td>
+                        @elseif (Auth::user()->role_id == 2)
+                        <td>
+                            <button disabled type="button" class="btn btn-success" data-toggle="modal" data-target="#edit-user" 
+                            data-id="{{ $data->id }}" 
+                            data-name="{{ $data->name }}" 
+                            data-username="{{ $data->username }}" 
+                            data-email="{{ $data->email }}" 
+                            data-roles="{{ $data->user_role->name }}"
+                            data-created_at="{{ $data->created_at->toFormattedDateString() }}" >
+                            <i class="fa fa-pen"></i></button>
+                            <button disabled type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-user" 
+                            data-id="{{ $data->id }}" 
+                            data-name="{{ $data->name }}" 
+                            data-username="{{ $data->username }}" 
+                            data-email="{{ $data->email }}" 
+                            data-roles="{{ $data->user_role->name }}"
+                            data-created_at="{{ $data->created_at->toFormattedDateString() }}">
+                            <i class="fa fa-trash"></i></button>
+                        </td>
+
+                        @endif
+                        
                     </tr>
                 @endforeach
               </tbody>
