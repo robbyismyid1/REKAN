@@ -203,13 +203,14 @@
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="new password" aria-describedby="helpId">
+                            <input required type="password" name="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="new password" aria-describedby="helpId">
       
                             @if ($errors->has('password'))
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $errors->first('password') }}</strong>
                                   </span>
-                              @endif
+                            @endif
+                            <small>Jika tidak mengganti password, tolong masukan kata sandi anda sekarang</small>
                         </div>
                 </div>
                 <div class="modal-footer">

@@ -855,7 +855,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title" style="color:black;">Total Kredit</h5>
-                            <h1 style="">{{ number_format($total_kdt_bjbs, 0, '', '.') }}</h1>
+                            <h1 style="">{{ number_format($all_kdt, 0, '', '.') }}</h1>
                         </div>
                     </div>
                 </div>
