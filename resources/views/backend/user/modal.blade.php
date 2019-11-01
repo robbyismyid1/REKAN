@@ -163,7 +163,7 @@
                         <div class="form-group">
                             <input type="hidden" name="id" id="id">
                             <label for="">Name</label>
-                          <input type="text" name="name" id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="No urut" aria-describedby="helpId">
+                          <input type="text" name="name" id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
     
                           @if ($errors->has('name'))
                                 <span class="invalid-feedback" role="alert">
@@ -173,7 +173,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Username</label>
-                            <input type="text" name="username" id="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Tanggal(1)" aria-describedby="helpId">
+                            <input type="text" name="username" id="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('username'))
                                <span class="invalid-feedback" role="alert">
@@ -183,7 +183,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="email" aria-describedby="helpId">
+                            <input type="email" name="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="" aria-describedby="helpId">
       
                             @if ($errors->has('email'))
                                <span class="invalid-feedback" role="alert">
