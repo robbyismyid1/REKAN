@@ -168,7 +168,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BJBS</h5>
                         <h1 style="">{{ $total_bjbs }}</h1>
-                        <a href="/admin/bjbs" class="btn btn-primary">Go to BJBS</a>
+                        <a href="/admin/bjbs" class="btn btn-danger">Go to BJBS</a>
+                        &nbsp;
+                        <a href="/admin/bjbs-rekap-tahun" class="btn btn-danger">Go to Rekap BJBS</a>
                     </div>
                 </div>
             </div>
@@ -300,7 +302,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BJBS H2H</h5>
                         <h1 style="">{{ $total_bjbs_h2h }}</h1>
-                        <a href="/admin/bjbs-h2h" class="btn btn-primary">Go to BJBS H2H</a>
+                        <a href="/admin/bjbs-h2h" class="btn btn-danger">Go to BJBS H2H</a>
+                        &nbsp;
+                        <a href="/admin/bjbs-h2h-rekap-tahun" class="btn btn-danger">Go to Rekap BJBS H2H</a>
                     </div>
                 </div>
             </div>
@@ -432,7 +436,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BRI</h5>
                         <h1 style="">{{ $total_bri }}</h1>
-                        <a href="/admin/bri" class="btn btn-primary">Go to BRI</a>
+                        <a href="/admin/bri" class="btn btn-danger">Go to BRI</a>
+                        &nbsp;
+                        <a href="/admin/bri-rekap-tahun" class="btn btn-danger">Go to Rekap BRI</a>
                     </div>
                 </div>
             </div>
@@ -564,7 +570,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BRI-Syariah</h5>
                         <h1 style="">{{ $total_bris }}</h1>
-                        <a href="/admin/bri-syariah" class="btn btn-primary">Go to BRI-Syariah</a>
+                        <a href="/admin/bri-syariah" class="btn btn-danger">Go to BRI-Syariah</a>
+                        &nbsp;
+                        <a href="/admin/bri-syariah-rekap-tahun" class="btn btn-danger">Go to Rekap BRI-Syariah</a>
                     </div>
                 </div>
             </div>
@@ -696,7 +704,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BSM</h5>
                         <h1 style="">{{ $total_bsm }}</h1>
-                        <a href="/admin/bri-syariah" class="btn btn-primary">Go to BSM</a>
+                        <a href="/admin/bsm" class="btn btn-danger">Go to BSM</a>
+                        &nbsp;
+                        <a href="/admin/bsm-rekap-tahun" class="btn btn-danger">Go to Rekap BSM</a>
                     </div>
                 </div>
             </div>
@@ -828,7 +838,9 @@
                     <div class="card-body">
                         <h5 class="card-title" style="color:black;">Data BTN</h5>
                         <h1 style="">{{ $total_btn }}</h1>
-                        <a href="/admin/btn" class="btn btn-primary">Go to BTN</a>
+                        <a href="/admin/btn" class="btn btn-danger">Go to BTN</a>
+                        &nbsp;
+                        <a href="/admin/btn-rekap-tahun" class="btn btn-danger">Go to Rekap BJBS</a>
                     </div>
                 </div>
             </div>
